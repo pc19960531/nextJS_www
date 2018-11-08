@@ -15,9 +15,14 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
+        server.get('*/imgs/*', (req, res) => {
+            res.sendFile(__dirname + req.url);
+        })
+
         server.get('*', (req, res) => {
             return handle(req, res)
         })
+
 
         server.listen(3000, (err) => {
             if (err) throw err
