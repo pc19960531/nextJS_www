@@ -1,3 +1,5 @@
+
+
 html {
     -webkit-font-smoothing: antialiased;
   }
@@ -134,12 +136,12 @@ html {
   }
   
   .breadcrumb {
-    background-color: transparent;
+    background-color: transparent!important;
     list-style: none;
     font-size: 16px;
     line-height: 24px;
     padding: 20px 0px;
-    margin: 0px;
+    margin: 0px!important;
   }
   
   .breadcrumb li+li:before {

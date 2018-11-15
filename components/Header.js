@@ -1,67 +1,54 @@
-
-import Head from 'next/head'
 import './Header.scss'
+import Link from 'next/link'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+
 
 const Header = () => (
-    <div className="index-title toptitle p-relative">
-        <nav className="navbar navbar-expand-lg navbar-dark">
-            <a className="navbar-brand" href="/index.html">
-                <span className="logo-default">
-                    <img src="/imgs/logo.png" alt="" />
-                </span>
-            </a>
+    <div className="index-title toptitle">
+        <Navbar collapseOnSelect expand="lg" variant="dark">
+            <Link href="/index">
+                <a className="navbar-brand">
+                    <span className="logo-default">
+                        <img src="/imgs/logo.png" alt="" />
+                    </span>
+                </a>
+            </Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="ml-auto">
 
-            <button className="navbar-toggler index-navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+                    <Link href='/index'>
+                        <a class="nav-link">首页</a>
+                    </Link>
 
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                        <a className="nav-link" href="/index.html" id="Home">首页</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="https://dev.fo" target="_blank" id="Developer">开发者</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="https://dapp.fo" target="_blank">DAPP</a>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span>FO</span>
-                            <i className="lnr lnr-chevron-down u-fs-12 ml-1"></i>
-                        </a>
-                        <div className="dropdown-menu box-shadow-v2" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="https://wallet.fo" id="Wallet" target="_blank">FO 钱包</a>
-                            <a className="dropdown-item" href="/5b8b51baaba908441dbbfc81.html" id="FO_Exchange">FO 兑换</a>
-                        </div>
-                    </li>
-
-                    <li className="nav-item">
-                        <a className="nav-link" href="/news.html" id="News" target="_blank">新闻</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="http://bbs.fibos.io" target="_blank" id="Community">社区</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/faq.html" id="FAQ" target="_blank">指南</a>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span id='Language'>中文</span>
-                            <i className="lnr lnr-chevron-down u-fs-12 ml-1"></i>
-                        </a>
-                        <div className="dropdown-menu box-shadow-v2 language" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" id="language-zh">中文</a>
-                            <a className="dropdown-item" id="language-en">English</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    <Nav.Link href="https://dev.fo">开发者</Nav.Link>
+                    <Nav.Link href="https://dapp.fo">DAPP</Nav.Link>
+                    <NavDropdown title="FO" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="https://wallet.fo">
+                            FO 钱包
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/5b8b51baaba908441dbbfc81.html">
+                            FO 兑换
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                    <Link href='/news'>
+                        <a class="nav-link">新闻</a>
+                    </Link>
+                    <Nav.Link href="http://bbs.fibos.io" >社区</Nav.Link>
+                    <Link href='/faq'>
+                        <a class="nav-link">指南</a>
+                    </Link>
+                    <NavDropdown title="中文" id="collasible-nav-dropdown">
+                        <NavDropdown.Item>
+                            中文
+                        </NavDropdown.Item>
+                        <NavDropdown.Item >
+                            English
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     </div>
 )
 

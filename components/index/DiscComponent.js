@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 class DiscComponent extends React.Component {
 
@@ -216,7 +217,9 @@ class DiscComponent extends React.Component {
                             </div>
                         </div>
                         <div className="disc-ibo">
-                            <a href="/ibounion.html" id="IBO" target="_blank">IBO 应用创新联盟</a>
+                            <Link href="/iboUnion" >
+                                <a id="IBO" target="_blank">IBO 应用创新联盟</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
