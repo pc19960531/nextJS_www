@@ -15,7 +15,8 @@ class News extends React.Component {
 
     componentDidMount() {
         post('/1.0/app/web/news', { lang: 'zh-cn' }).then((newsList) => {
-            this.setState({ newsList: newsList.news })
+            console.log("newsList:" + JSON.stringify(newsList))
+            // this.setState({ newsList: newsList.news })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")
         })
