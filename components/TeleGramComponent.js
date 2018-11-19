@@ -1,43 +1,121 @@
 import React from 'react'
+import moment from 'moment'
+import PropTypes from 'prop-types';
+import axios from 'axios'
 
 class TeleGramComponent extends React.Component {
-    state = {
-        collapse: true,
-        messages: [],
-        isMobile: '',
-        members: 0,
-        allHistoryMessage: [],
-        pageCount: 0,
-        currentPage: 2,
-        loading: false,
-        scrollHeight: 0
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapse: true,
+            messages: [],
+            isMobile: false,
+            members: 0,
+            allHistoryMessage: [],
+            pageCount: 0,
+            currentPage: 2,
+            loading: false,
+            scrollHeight: 0,
+        }
     }
 
-    pushMessage = (messages, isHistory, pageCount) => {
+    toggleCollapseOrLink = () => {
+        if (browser.versions.mobile) {
+            window.open('https://t.me/FIBOSIO')
+            return
+        }
+        this.collapse = !this.collapse
+    }
+
+    async getLastPageMessage(page) {
+        try {
+            var protocol = window.location.protocol
+            var host = window.location.host
+            let url = `/1.0/app/getTgHistory/${page}`
+            //let url = `http://115.47.142.152:9090/getTgHistory/${page}`
+            this.setState({ loading: true })
+            const result = await axios({
+                method: 'Get',
+                url
+            })
+            return result
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    scrollDid = () => {
+        let e = this.messageswrap
+        const { loading, pageCount, currentPage } = this.state;
+        let that = this;
+        $('.messages').scroll(function () {
+            if (e.scrollTop === 0 && currentPage <= pageCount && !loading) {
+                let currentHeight = e.scrollHeight
+                let nextMessages = []
+                that.getLastPageMessage(currentPage)
+                    .then(res => {
+                        nextMessages = res.data.messages
+                        that.setState({
+                            loading: false,
+                            messages: that.transferMessage(nextMessages).concat(that.messages),
+                            currentPage: currentPage + 1
+                        })
+                    })
+                    .catch(() => {
+                        that.setState({
+                            loading: false,
+                        })
+                        alert('请刷新页面重试')
+                    })
+                    .finally(() => {
+                        e.scrollTop = e.scrollHeight - currentHeight - 10
+                    })
+            }
+        })
+    }
+
+    transferMessage = (messages) => {
+        return messages.map(function (ele) {
+            if (ele.text) {
+                var escapetext = escape(ele.text)
+                var escapetextlist = escapetext.split('%0A')
+                var messagelist = escapetextlist.map(function (ele) {
+                    return unescape(ele)
+                })
+                ele.messagelist = messagelist
+
+            }
+            if (ele.unixDate) {
+                var formatDate = moment.unix(ele.unixDate).format("HH:mm")
+                ele.formatDate = formatDate;
+            }
+            return ele
+        })
+    }
+
+
+    pushMessage = (newmessages, isHistory, pageCount) => {
+        const { messages } = this.state;
         let latestMassage
         if (isHistory) {
-            this.allHistoryMessage = messages
-            //this.page = (messages.length % 20 === 0 ? 0 : 1) + parseInt(messages.length / 20);
-            this.pageCount = pageCount
-            //let initMessage = messages.slice(messages.length - 20);
-            latestMassage = messages.concat(this.messages)
+            this.setState({ pageCount })
+            latestMassage = newmessages.concat(messages)
         } else {
-            latestMassage = this.messages.concat(messages)
+            latestMassage = messages.concat(newmessages)
         }
-        this.messages = this.transferMessage(latestMassage)
+        let transfermessages = this.transferMessage(latestMassage)
 
-        let e = this.$refs.messages
+        this.setState({ messages: transfermessages })
+
+        let e = this.messageswrap;
         scroll = e.scrollHeight - e.scrollTop
         if (isHistory) {
-            this.$nextTick(function () {
-                e.scrollTop = e.scrollHeight
-            })
+            e.scrollTop = e.scrollHeight
         }
         if (scroll >= 300 && scroll <= 600) {
-            this.$nextTick(function () {
-                e.scrollTop = e.scrollHeight
-            })
+            e.scrollTop = e.scrollHeight
         }
+        this.scrollDid()
     }
 
     pushMembers = (data) => {
@@ -47,17 +125,14 @@ class TeleGramComponent extends React.Component {
     initWebsocket = () => {
         var protocol = window.location.protocol
         var host = window.location.host
-        this.socket = new WebSocket(`${protocol.indexOf('https') >= 0 ? 'wss' : 'ws'}://${host}/1.0/push`)
-        //this.socket = new WebSocket('ws://115.47.142.152:9090/1.0/push');
+        //this.socket = new WebSocket(`${protocol.indexOf('https') >= 0 ? 'wss' : 'ws'}://${host}/1.0/push`)
+        this.socket = new WebSocket('ws://115.47.142.152:9090/1.0/push');
         //this.socket = new WebSocket('ws://fibos.io/1.0/push');
 
         this.socket.onmessage = e => {
             var d = JSON.parse(e.data)
             if (d.data && d.data.messages) {
                 this.pushMessage(d.data.messages, d.data.isHistory, d.data.pageCount)
-                // if ($('ul.messages')[0].scrollHeight = $('ul.messages').scrollTop() + $(".wrap").height()) {
-                //   $('ul.messages').scrollTop($('ul.messages')[0].scrollHeight)
-                // }
             }
             if (d.data && d.data.members) {
                 this.pushMembers(d.data.members)
@@ -67,9 +142,11 @@ class TeleGramComponent extends React.Component {
 
     componentDidMount() {
         this.initWebsocket();
+
+        this.setState({ isMobile: this.context.agent.mobile })
     }
     render() {
-        const { collapse, isMobile, members, loading } = this.state;
+        const { collapse, isMobile, members, loading, messages } = this.state;
         return (
             <div id="tele" className={collapse ? 'tele-collapse' : ''} >
                 <div className={isMobile ? 'hide' : 'bg'}>
@@ -90,8 +167,12 @@ class TeleGramComponent extends React.Component {
                                 <div className="rect5"></div>
                             </div>
                         </div>
-                        <ul className="messages" ref="messages">
-
+                        <ul className="messages" ref={(index) => this.messageswrap = index}>
+                            {
+                                messages.length > 0 && messages.map((message, index) => (
+                                    <Messagecomponent message={message} key={index} />
+                                ))
+                            }
                         </ul >
                     </div >
                     <div className="bottom">
@@ -119,6 +200,35 @@ class TeleGramComponent extends React.Component {
             </div >
         )
     }
+}
+
+function Messagecomponent({ message }) {
+
+    return (
+        <div className="message">
+            <p className="name">
+                {message.from.name}
+            </p>
+            <div className="tele-message-content-wrapper">
+                <div className="tele-message-content" >
+                    {
+                        message.messagelist.map((content, index) => (
+                            <div className={content ? 'textdiv' : ''} key={index}>
+                                {content}
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className="tele-message-time">
+                    <span>{message.formatDate}</span>
+                </div>
+            </div >
+        </div >
+    )
+}
+
+TeleGramComponent.contextTypes = {
+    agent: PropTypes.object
 }
 
 export default TeleGramComponent

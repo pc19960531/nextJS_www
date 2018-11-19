@@ -138,79 +138,79 @@ export default () => (
                         </div>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div class="row">
-                            <div class="dapp"><a href="https://www.fibos123.com/" target="_blank" class="link">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/dapp11.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="FIBOSLo"></h5>
-                                        <p class="card-text" data-i18n-text="FIBOSLoDes"></p>
+                        <div className="row">
+                            <div className="dapp"><a href="https://www.fibos123.com/" target="_blank" className="link">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/dapp11.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="FIBOSLo"></h5>
+                                        <p className="card-text" data-i18n-text="FIBOSLoDes"></p>
                                     </div>
                                 </div>
                             </a></div>
-                            <div class="dapp"><a href="https://fibos.slowmist.io/" target="_blank" class="link">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/dapp12.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="Slow"></h5>
-                                        <p class="card-text" data-i18n-text="SlowDes"></p>
+                            <div className="dapp"><a href="https://fibos.slowmist.io/" target="_blank" className="link">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/dapp12.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="Slow"></h5>
+                                        <p className="card-text" data-i18n-text="SlowDes"></p>
                                     </div>
                                 </div>
                             </a></div>
-                            <div class="dapp"><a href="http://www.fotoken.io" target="_blank" class="link">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/dapp14.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">FoToken</h5>
-                                        <p class="card-text" data-i18n-text="FoTokenDes">
+                            <div className="dapp"><a href="http://www.fotoken.io" target="_blank" className="link">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/dapp14.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">FoToken</h5>
+                                        <p className="card-text" data-i18n-text="FoTokenDes">
                                         </p>
                                     </div>
                                 </div>
                             </a></div>
-                            <div class="dapp lastVas">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="VacantSeat"></h5>
-                                        <p class="card-text"></p>
+                            <div className="dapp lastVas">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="VacantSeat"></h5>
+                                        <p className="card-text"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="dapp lastVas" id="Vs2">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="VacantSeat"></h5>
-                                        <p class="card-text"></p>
+                        <div className="row">
+                            <div className="dapp lastVas" id="Vs2">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="VacantSeat"></h5>
+                                        <p className="card-text"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dapp lastVas" id="Vs3">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="VacantSeat"></h5>
-                                        <p class="card-text"></p>
+                            <div className="dapp lastVas" id="Vs3">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="VacantSeat"></h5>
+                                        <p className="card-text"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dapp lastVas" id="Vs4">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="VacantSeat"></h5>
-                                        <p class="card-text"></p>
+                            <div className="dapp lastVas" id="Vs4">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="VacantSeat"></h5>
+                                        <p className="card-text"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dapp lastVas" id="Vs5">
-                                <div class="card">
-                                    <div class="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title" data-i18n-text="VacantSeat"></h5>
-                                        <p class="card-text"></p>
+                            <div className="dapp lastVas" id="Vs5">
+                                <div className="card">
+                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" data-i18n-text="VacantSeat"></h5>
+                                        <p className="card-text"></p>
                                     </div>
                                 </div>
                             </div>

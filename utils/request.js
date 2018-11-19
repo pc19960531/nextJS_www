@@ -11,4 +11,4 @@ const post = async (url, param) => {
     return res;
 }
 
-export default post 
+export default post

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 
-const Header = () => (
-    <div className="index-title toptitle">
+const Header = ({ isIndex = false }) => (
+    <div className={`index-title toptitle ${isIndex ? '' : 'p-relative'}`}>
         <Navbar collapseOnSelect expand="lg" variant="dark">
             <Link href="/index">
                 <a className="navbar-brand">
@@ -18,7 +18,7 @@ const Header = () => (
                 <Nav className="ml-auto">
 
                     <Link href='/index'>
-                        <a class="nav-link">首页</a>
+                        <a className="nav-link">首页</a>
                     </Link>
 
                     <Nav.Link href="https://dev.fo">开发者</Nav.Link>
@@ -32,11 +32,11 @@ const Header = () => (
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Link href='/news'>
-                        <a class="nav-link">新闻</a>
+                        <a className="nav-link">新闻</a>
                     </Link>
                     <Nav.Link href="http://bbs.fibos.io" >社区</Nav.Link>
                     <Link href='/faq'>
-                        <a class="nav-link">指南</a>
+                        <a className="nav-link">指南</a>
                     </Link>
                     <NavDropdown title="中文" id="collasible-nav-dropdown">
                         <NavDropdown.Item>

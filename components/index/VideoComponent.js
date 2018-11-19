@@ -7,7 +7,7 @@ class VideoComponent extends Component {
         newsList: [
         ]
     }
-    
+
     componentDidMount() {
         let newsList = [
             {
@@ -74,8 +74,8 @@ class VideoComponent extends Component {
                                     newsList.length > 0 &&
                                     <Carousel controls={false} interval={3000} indicators={false}>
                                         {
-                                            newsList.map((ele) => (
-                                                <Carousel.Item>
+                                            newsList.map((ele, index) => (
+                                                <Carousel.Item key={index}>
                                                     <Link href={`/detail/${ele.id}`}>
                                                         <a target="_blank">
                                                             <div className="news-content row">

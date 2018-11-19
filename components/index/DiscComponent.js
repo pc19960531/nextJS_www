@@ -171,8 +171,8 @@ class DiscComponent extends React.Component {
                         <div className="disc-choose">
                             <ul>
                                 {
-                                    this.choose.map((name) => (
-                                        <li>
+                                    this.choose.map((name, index) => (
+                                        <li key={index}>
                                             <div
                                                 className={`chooseclick2 chooseclick main ${name === currentChoose ? 'active' : ''}`}
                                                 onClick={() => {
@@ -193,7 +193,7 @@ class DiscComponent extends React.Component {
                                     chooseMap.get(currentChoose).map((ele, index, array) =>
                                         (
                                             index !== array.length - 1 ?
-                                                < li >
+                                                < li key={index}>
                                                     <div className="avatar">
                                                         <img src={ele.img_src} className="avatar4" />
                                                         <div className="name avatar4-name">
@@ -201,7 +201,7 @@ class DiscComponent extends React.Component {
                                                         </div>
                                                     </div>
                                                 </li> :
-                                                <li className="last-li">
+                                                <li className="last-li" key={index}>
                                                     <div className="avatar">
                                                         <img src={ele.img_src} className="avatar5" />
                                                         <div className="name avatar5-name">

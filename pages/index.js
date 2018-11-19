@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import '../css/index.scss'
 import VideoComponent from '../components/index/VideoComponent'
 import DiscComponent from '../components/index/DiscComponent'
@@ -18,9 +19,24 @@ import { msg } from '../store'
 
 class Index extends React.Component {
 
+
     state = {
         list: [{}, {}, {}, {}, {}, {}, {}, {}]
     }
+
+    getChildContext() {
+        return { agent: this.props.agent };
+    }
+
+    // getDerivedStateFromProps(props, state) {
+    //     console.log("getDerivedStateFromProps:" + props)
+    // }
+    // getSnapshotBeforeUpdate(prevProps, prevState) {
+    //     console.log("getSnapshotBeforeUpdate:" + prevProps)
+    // }
+
+
+
     componentDidMount() {
         window.onscroll = function () {
             if (document.getElementsByClassName('index-roadmap')[0]) {
@@ -35,7 +51,7 @@ class Index extends React.Component {
     render() {
         const { list } = this.state;
         return (
-            <div ref={(index) => this.index = index}>
+            <div>
                 <VideoComponent />
                 <DiscComponent />
                 <PicShowComponent />
@@ -50,4 +66,8 @@ class Index extends React.Component {
 
 }
 
-export default layout(Index)
+Index.childContextTypes = {
+    agent: PropTypes.object
+};
+
+export default layout(Index,true)
