@@ -126,7 +126,7 @@ class TeleGramComponent extends React.Component {
         var protocol = window.location.protocol
         var host = window.location.host
         //this.socket = new WebSocket(`${protocol.indexOf('https') >= 0 ? 'wss' : 'ws'}://${host}/1.0/push`)
-        this.socket = new WebSocket('ws://115.47.142.152:9090/1.0/push');
+        this.socket = new WebSocket('wss://115.47.142.152:9090/1.0/push');
         //this.socket = new WebSocket('ws://fibos.io/1.0/push');
 
         this.socket.onmessage = e => {
