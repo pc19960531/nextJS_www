@@ -3,6 +3,7 @@ import Band from '../components/news/Band'
 import layout from '../components/Layout'
 import { withRouter } from 'next/router'
 import post from '../utils/request'
+import Link from 'next/link'
 
 class Newdetail extends Component {
     state = {
