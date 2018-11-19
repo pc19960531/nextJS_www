@@ -8,7 +8,7 @@ const post = async (url, param) => {
             data: param
         }
     )
-    return res;
+    return res.data;
 }
 
 export default post
