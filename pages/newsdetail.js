@@ -10,6 +10,18 @@ class Newdetail extends Component {
         details: "",
         recommends: ""
     }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.router.query.id !== this.props.router.query.id) {
+            post('/1.0/app/web/details', { lang: 'zh-cn', id }).then((newsdtails) => {
+                this.setState({
+                    details: newsdtails.details,
+                    recommends: newsdtails.recommends
+                })
+            }).catch(() => {
+                alert("系统异常")
+            })
+        }
+    }
     componentDidMount() {
         let id = this.props.router.query.id;
         post('/1.0/app/web/details', { lang: 'zh-cn', id }).then((newsdtails) => {
