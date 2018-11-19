@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const band = () => (
+const band = ({ id, title }) => (
     <div>
         <div className="band">
             <div className="container">
@@ -25,6 +25,15 @@ const band = () => (
                         </a>
                     </Link>
                 </li>
+                {
+                    id && <li>
+                        <Link href={`/newsdetail?id=${id}`}>
+                            <a>
+                                {title}
+                            </a>
+                        </Link>
+                    </li>
+                }
             </ol>
         </div>
     </div>

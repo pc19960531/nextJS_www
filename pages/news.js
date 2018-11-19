@@ -9,14 +9,14 @@ import post from '../utils/request'
 
 class News extends React.Component {
     state = {
-        newsList: []
+        newsList: [],
+        recommendList: []
     }
 
 
     componentDidMount() {
         post('/1.0/app/web/news', { lang: 'zh-cn' }).then((newsList) => {
-            // console.log("newsList:" + JSON.stringify(newsList))
-            this.setState({ newsList: newsList.news })
+            this.setState({ newsList: newsList.news, recommendList: newsList.recommends })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")
         })
@@ -35,8 +35,8 @@ class News extends React.Component {
                                     (
                                         <div className="new-item">
                                             <h4>
-                                                <Link href={`/newsdetail?title=${ele.id}`}>
-                                                    <a href="{{path}}">
+                                                <Link href={`/newsdetail?id=${ele.id}`}>
+                                                    <a>
                                                         {ele.title}
                                                     </a>
                                                 </Link>
@@ -51,7 +51,15 @@ class News extends React.Component {
                             <h5>新闻推荐</h5>
                             <div className="rec-wrap">
                                 <ul className="rec-list">
-
+                                    {
+                                        recommendList.length > 0 && recommendList.map((ele, index) => (
+                                            <Link href={`/newsdetail?id=${ele.id}`} key={index}>
+                                                <a className="rec-item">
+                                                    {ele.title}
+                                                </a>
+                                            </Link>
+                                        ))
+                                    }
                                 </ul>
                             </div>
                         </div>
