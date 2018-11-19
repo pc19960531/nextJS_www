@@ -23,7 +23,7 @@ class News extends React.Component {
     }
 
     render() {
-        const { newsList } = this.state;
+        const { newsList, recommendList } = this.state;
         return (
             <div className="inside-container">
                 <Band />

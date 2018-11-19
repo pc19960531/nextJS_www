@@ -21,7 +21,7 @@ class Newdetail extends Component {
         })
     }
     render() {
-        const { details } = this.state;
+        const { details, recommends } = this.state;
         return (
             <div className="inside-container">
                 <Band id={this.props.router.query.id} title={details.title} />
