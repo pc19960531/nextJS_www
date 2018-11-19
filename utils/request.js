@@ -5,7 +5,8 @@ const post = async (url, param) => {
         {
             method: "POST",
             url,
-            data: param
+            data: param,
+            "Content-Type": "application/json"
         }
     )
     return res.data;
