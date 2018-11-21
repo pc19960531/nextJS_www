@@ -37,26 +37,26 @@ class Newdetail extends Component {
     render() {
         const { details, recommends } = this.state;
         return (
-            <div className="inside-container">
+            <div classNameName="inside-container">
                 <Band id={this.props.router.query.id} title={details.title} />
-                <div class="page-body">
-                    <div class="container row">
-                        <div class="col-lg-9 col-md-9 news-content-container">
-                            <h3 class="news-title">{details.title}</h3>
-                            <p class="info">发布时间: {details.date} 作者: {details.author}</p>
-                            <div class="news-content" dangerouslySetInnerHTML={{ __html: details.content }} >
+                <div className="page-body">
+                    <div className="container row">
+                        <div className="col-lg-9 col-md-9 news-content-container">
+                            <h3 className="news-title">{details.title}</h3>
+                            <p className="info">发布时间: {details.date} 作者: {details.author}</p>
+                            <div className="news-content" dangerouslySetInnerHTML={{ __html: details.content }} >
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 news-rec-container">
+                        <div className="col-lg-3 col-md-3 news-rec-container">
                             <h5 id="NewsRec">
                                 新闻推荐
                             </h5>
-                            <div class="rec-wrap">
-                                <ul class="rec-list">
+                            <div className="rec-wrap">
+                                <ul className="rec-list">
                                     {
                                         recommends && recommends.length > 0 && recommends.map((ele, index) => (
                                             <Link href={`/newsdetail?id=${ele.id}`} key={index}>
-                                                <a className="rec-item">
+                                                <a classNameName="rec-item">
                                                     {ele.title}
                                                 </a>
                                             </Link>

@@ -1,4 +1,4 @@
-import './Header.scss'
+import '../css/Header.scss'
 import Link from 'next/link'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
