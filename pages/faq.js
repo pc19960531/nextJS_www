@@ -6,14 +6,14 @@ import { Panel, PanelGroup } from 'react-bootstrap'
 import post from '../utils/request'
 class FAQ extends Component {
     state = {
-        classNameify: [],
+        classify: [],
         qaList: [],
     }
 
     componentDidMount() {
         post('/1.0/app/web/faq', { lang: 'zh-cn' }).then((res) => {
             this.setState({
-                classNameify: res.classNameify,
+                classify: res.classify,
                 qaList: res.qa,
             })
         }).catch((err) => {
@@ -23,7 +23,7 @@ class FAQ extends Component {
 
     }
     render() {
-        const { classNameify, qaList } = this.state;
+        const { classify, qaList } = this.state;
         return (
             <div className="inside-container">
 
@@ -55,14 +55,14 @@ class FAQ extends Component {
                         <div className="sidebar hidden-xs col-lg-2">
                             <div className="panel-group" id="accordion" role="tablist">
                                 {
-                                    classNameify.length > 0 && classNameify.map((ele) => (
+                                    classify.length > 0 && classify.map((ele) => (
                                         <div className="card">
                                             <div className="card-header" role="tab" id="headingOne">
                                                 <h4 className="card-title">
                                                     <a data-toggle="collapse" data-parent="#accordion" onClick={() => {
                                                         post('/1.0/app/web/faq', { lang: 'zh-cn', id: ele.id }).then((res) => {
                                                             this.setState({
-                                                                classNameify: res.classNameify,
+                                                                classify: res.classify,
                                                                 qaList: res.qa,
                                                             })
                                                         }).catch((err) => {
