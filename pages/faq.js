@@ -8,6 +8,8 @@ class FAQ extends Component {
     state = {
         classify: [],
         qaList: [],
+        classifyId: "",
+        classifyName: ""
     }
 
     componentDidMount() {
@@ -15,6 +17,8 @@ class FAQ extends Component {
             this.setState({
                 classify: res.classify,
                 qaList: res.qa,
+                classifyId: res.classify[0].id,
+                classifyName: res.classify[0].name
             })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")
@@ -23,7 +27,7 @@ class FAQ extends Component {
 
     }
     render() {
-        const { classify, qaList } = this.state;
+        const { classify, qaList, classifyName } = this.state;
         return (
             <div className="inside-container">
 
@@ -48,6 +52,12 @@ class FAQ extends Component {
                                 <a data-i18n-text="IBO_U">指南</a>
                             </Link>
                         </li>
+                        {
+                            classifyName &&
+                            <li>
+                                {classifyName}
+                            </li>
+                        }
                     </ol>
                 </div>
                 <div className="page-body">
@@ -64,6 +74,8 @@ class FAQ extends Component {
                                                             this.setState({
                                                                 classify: res.classify,
                                                                 qaList: res.qa,
+                                                                classifyId: ele.id,
+                                                                classifyName: ele.name
                                                             })
                                                         }).catch((err) => {
                                                             alert("系统异常，请稍后再试！")

@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import Link from 'next/link'
 import { Carousel } from 'react-bootstrap'
+import PropTypes from 'prop-types';
 
 class VideoComponent extends Component {
     state = {
@@ -31,6 +32,7 @@ class VideoComponent extends Component {
     }
     render() {
         const { newsList } = this.state;
+        const language = this.context.language;
         return (
             <div className="index-video">
                 <div className="video-wrap">
@@ -41,22 +43,22 @@ class VideoComponent extends Component {
                         </video>
                     </div>
                     <div className="index-advance">
-                        <div className="content1 animate fly-from-left a-delay7" id="Discover">
-                            发现无处不在的价值
-            </div>
+                        <div className="content1 animate fly-from-left a-delay7">
+                            {language.Discover}
+                        </div>
                         <div className="content2 animate fly-from-left a-delay13" id="Platform">
-                            FIBOS 是一个创造和发展区块链应用生态的平台，
-            </div>
+                            {language.Platform}
+                        </div>
                         <div className="content3 animate fly-from-left a-delay13" id="Easy">
-                            让你轻松创建属于自己的价值网络，帮助开发者和创业者一步进入区块链世界
-            </div>
+                            {language.Easy}
+                        </div>
                         <div className="link-app animate fly-from-bottom a-delay19">
                             <div className="link">
                                 <a href="https://wallet.fo" target="_blank">
                                     <img src="../imgs/button-green.png" />
                                     <div className="link-content">
                                         <img src="../imgs/icon-download.png" />
-                                        <div className="link-download" id="DownloadWallet">下载 FO 钱包</div>
+                                        <div className="link-download" id="DownloadWallet">{language.DownloadWallet}</div>
                                     </div>
                                 </a>
                             </div>
@@ -67,7 +69,7 @@ class VideoComponent extends Component {
                     <div className="news-wrap">
                         <div className="row">
                             <div className="col-2 news">
-                                新闻
+                                {language.News}
                             </div>
                             <div className="col-7 text-left">
                                 {
@@ -93,7 +95,7 @@ class VideoComponent extends Component {
                             </div>
                             <div className="col-3">
                                 <Link href="/news" >
-                                    <a>更多 ></a>
+                                    <a>{language.More}</a>
                                 </Link>
                             </div>
                         </div>
@@ -102,6 +104,12 @@ class VideoComponent extends Component {
             </div>
         )
     }
+
+
+}
+
+VideoComponent.contextTypes = {
+    language: PropTypes.object
 }
 
 export default VideoComponent

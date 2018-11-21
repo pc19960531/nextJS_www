@@ -1,13 +1,13 @@
 
 
-export default () => (
+export default ({ language }) => (
     <div>
         <a name="coo" style={{ height: 0 }}></a>
         <div className="index-coo">
             <div className="coo-wrap">
                 <div className="coo-title" id="Partners">
-                    战略合作
-            </div>
+                    {language.Partners}
+                </div>
                 <div className="row">
                     <div className="col-md-3 col-xs-6 cooimg col-4">
                         <a href="https://www.vnscoin.org/" target="_blank">

@@ -24,6 +24,7 @@ class News extends React.Component {
 
     render() {
         const { newsList, recommendList } = this.state;
+        const language = this.props.language;
         return (
             <div className="inside-container">
                 <Band />

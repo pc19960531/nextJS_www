@@ -1,4 +1,4 @@
-export default () => (
+export default ({ data, language }) => (
     <div className="index-fodata">
         <div className="fodata-wrap">
             <div className="earthpic">
@@ -9,10 +9,10 @@ export default () => (
                     </div>
                     <div className="right">
                         <div id="Block">
-                            区块数
-                    </div>
-                        <div id="BlockNumber" className="number">
-
+                            {language.Block}
+                        </div>
+                        <div className="number">
+                            {data.BlockNumber}
                         </div>
                     </div>
                 </div>
@@ -22,10 +22,10 @@ export default () => (
                     </div>
                     <div className="right">
                         <div id="Smarttoken">
-                            智能通证数
-                    </div>
-                        <div id="smartTokens" className="number">
-
+                            {language.Smarttoken}
+                        </div>
+                        <div className="number">
+                            {data.smartTokens}
                         </div>
                     </div>
                 </div>
@@ -35,10 +35,10 @@ export default () => (
                     </div>
                     <div className="right">
                         <div id="Deals">
-                            交易数
-                    </div>
+                            {language.Deals}
+                        </div>
                         <div id="TransactionNumber" className="number">
-
+                            {data.TransactionNumber}
                         </div>
                     </div>
                 </div>
@@ -48,10 +48,10 @@ export default () => (
                     </div>
                     <div className="right">
                         <div id="Users">
-                            注册用户数
-                    </div>
+                            {language.Users}
+                        </div>
                         <div id="NumberOfUsers" className="number">
-
+                            {data.NumberOfUsers}
                         </div>
                     </div>
                 </div>
@@ -61,11 +61,10 @@ export default () => (
                     </div>
                     <div className="right">
                         <div id="FoNum">
-                            FO流通量
-                    </div>
+                            {language.FoNum}
+                        </div>
                         <div className="number">
-                            <span id="FOCirculation"></span>
-                            &nbsp;FO
+                            {data.FOCirculation} &nbsp;FO
                     </div>
                     </div>
                 </div>

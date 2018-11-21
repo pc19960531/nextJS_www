@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-
+import PropTypes from 'prop-types';
 class DiscComponent extends React.Component {
 
     choose = [
-        '节点英雄',
-        'DAPP 开发者',
-        '文档贡献者',
-        '社区志愿者'
+        `${this.context.language.Main_Node}`,
+        `${this.context.language.DappDeveloper}`,
+        `${this.context.language.Com_Contributor}`,
+        `${this.context.language.Volunteer}`
     ]
 
     main_node = [
@@ -105,42 +105,43 @@ class DiscComponent extends React.Component {
         discList: [
             {
                 img_src: '../imgs/icon-future1.png',
-                title: '高性能公链设施',
-                detail: 'FIBOS 是基于 EOS 技术架构开发的新型公链，采用 DPOS 共识机制，满足大规模商业应用的要求。'
+                title: `${this.context.language.Public_chain}`,
+                detail: `${this.context.language.Public_chain_disc}`
             },
             {
                 img_src: '../imgs/icon-future2.png',
-                title: '健康的通证模型',
-                detail: 'FIBOS 创新性地采用了基于 Bancor 协议的通证模型，实现通证经济体系的快速建立和健康发展。'
+                title: `${this.context.language.Healthy}`,
+                detail: `${this.context.language.Healthy_disc}`
             },
             {
                 img_src: '../imgs/icon-future3.png',
-                title: '区块链生态入口',
-                detail: 'FIBOS 生态中的 FO 钱包，帮助用户方便安全地管理数字资产并且承载整个生态的各种应用，是进入区块链世界的重要入口。'
+                title: `${this.context.language.Entrance}`,
+                detail: `${this.context.language.Entrance_disc}`
             },
             {
                 img_src: '../imgs/icon-future4.png',
-                title: '降低开发者门槛',
-                detail: 'FIBOS 融合了 EOS 和 fibjs 的 JavaScript 运行环境，扩展了 EOS 的可编程能力，并且能够使用 JavaScript 开发智能合约，让智能合约编程变得简单、高效!'
+                title: `${this.context.language.Lower_threshold}`,
+                detail: `${this.context.language.Lower_threshold_disc}`
             }
         ],
-        currentChoose: '节点英雄'
+        currentChoose: this.context.language.Main_Node
     }
 
     render() {
         const { discList, currentChoose } = this.state;
+        const language = this.context.language;
         let chooseMap = new Map([
-            ['节点英雄', this.main_node],
-            ['DAPP 开发者', this.dapp_developer],
-            ['文档贡献者', this.doc_contributor],
-            ['社区志愿者', this.volunteer],
+            [`${language.Main_Node}`, this.main_node],
+            [`${language.DappDeveloper}`, this.dapp_developer],
+            [`${language.Com_Contributor}`, this.doc_contributor],
+            [`${language.Volunteer}`, this.volunteer],
         ])
         return (
             <div>
                 <div className="index-disc">
                     <div className="index-wrap">
                         <div className="disc-title">
-                            <div id="Performance">高性能基础设施 赋能实体</div>
+                            <div id="Performance">{language.Performance}</div>
                         </div>
                         <div className="disc-content">
                             <div className="row">
@@ -166,7 +167,7 @@ class DiscComponent extends React.Component {
                 <div className="disc-bottom">
                     <div className="disc-bottom-wrap">
                         <div className="disc-top-title" id="Diversified">
-                            多样化参与途径 链接未来
+                            {language.Diversified}
                         </div>
                         <div className="disc-choose">
                             <ul>
@@ -218,7 +219,7 @@ class DiscComponent extends React.Component {
                         </div>
                         <div className="disc-ibo">
                             <Link href="/iboUnion" >
-                                <a id="IBO" target="_blank">IBO 应用创新联盟</a>
+                                <a id="IBO" target="_blank">{language.IBO}</a>
                             </Link>
                         </div>
                     </div>
@@ -226,6 +227,11 @@ class DiscComponent extends React.Component {
             </div>
         )
     }
+}
+
+
+DiscComponent.contextTypes = {
+    language: PropTypes.object
 }
 
 export default DiscComponent

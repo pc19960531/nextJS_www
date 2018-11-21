@@ -9,6 +9,7 @@ import FODataComponent from '../components/index/FODataComponent'
 import CooComponent from '../components/index/CooComponent'
 import DappsComponent from '../components/index/DappsComponent'
 import layout from '../components/Layout'
+import post from '../utils/request'
 
 
 import TeleGramComponent from '../components/TeleGramComponent'
@@ -21,11 +22,11 @@ class Index extends React.Component {
 
 
     state = {
-        list: [{}, {}, {}, {}, {}, {}, {}, {}]
+        data: {}
     }
 
     getChildContext() {
-        return { agent: this.props.agent };
+        return { agent: this.props.agent, language: this.props.language };
     }
 
     // getDerivedStateFromProps(props, state) {
@@ -47,18 +48,24 @@ class Index extends React.Component {
                 }
             }
         }
+
+        post('/1.0/app/getBlockChainInfo', {}).then((data) => {
+            this.setState({ data })
+        }).catch((err) => {
+            alert("系统异常，请稍后再试！")
+        })
+
     }
     render() {
-        const { list } = this.state;
         return (
             <div>
                 <VideoComponent />
                 <DiscComponent />
-                <PicShowComponent />
-                <FODataComponent />
-                <RoadMapComponent />
-                <CooComponent />
-                <DappsComponent />
+                <PicShowComponent language={this.props.language} />
+                <FODataComponent data={this.state.data} language={this.props.language} />
+                <RoadMapComponent language={this.props.language} />
+                <CooComponent language={this.props.language} />
+                <DappsComponent language={this.props.language} />
                 <TeleGramComponent />
             </div>
         )
@@ -67,7 +74,8 @@ class Index extends React.Component {
 }
 
 Index.childContextTypes = {
-    agent: PropTypes.object
+    agent: PropTypes.object,
+    language: PropTypes.object
 };
 
-export default layout(Index,true)
+export default layout(Index, true)

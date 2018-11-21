@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 
-const Header = ({ isIndex = false }) => (
+const Header = ({ isIndex = false, language }) => (
     <div className={`index-title toptitle ${isIndex ? '' : 'p-relative'}`}>
         <Navbar collapseOnSelect expand="lg" variant="dark">
             <Link href="/index">
@@ -18,25 +18,25 @@ const Header = ({ isIndex = false }) => (
                 <Nav className="ml-auto">
 
                     <Link href='/index'>
-                        <a className="nav-link">首页</a>
+                        <a className="nav-link">{language.Home}</a>
                     </Link>
 
-                    <Nav.Link href="https://dev.fo">开发者</Nav.Link>
-                    <Nav.Link href="https://dapp.fo">DAPP</Nav.Link>
+                    <Nav.Link href="https://dev.fo">{language.Developer}</Nav.Link>
+                    <Nav.Link href="https://dapp.fo">{language.DAPP}</Nav.Link>
                     <NavDropdown title="FO" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="https://wallet.fo">
-                            FO 钱包
+                            {language.Wallet}
                         </NavDropdown.Item>
                         <NavDropdown.Item href="/5b8b51baaba908441dbbfc81.html">
-                            FO 兑换
+                            {language.FO_Exchange}
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Link href='/news'>
-                        <a className="nav-link">新闻</a>
+                        <a className="nav-link">{language.News}</a>
                     </Link>
-                    <Nav.Link href="http://bbs.fibos.io" >社区</Nav.Link>
+                    <Nav.Link href="http://bbs.fibos.io" >{language.Community}</Nav.Link>
                     <Link href='/faq'>
-                        <a className="nav-link">指南</a>
+                        <a className="nav-link">{language.FAQ}</a>
                     </Link>
                     <NavDropdown title="中文" id="collasible-nav-dropdown">
                         <NavDropdown.Item>
