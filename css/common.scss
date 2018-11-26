@@ -13,7 +13,7 @@
 
 
 
-.breadcrumb {
+.doc-container .breadcrumb {
     background-color: transparent;
     list-style: none;
     font-size: 16px;
@@ -22,13 +22,13 @@
     margin: 0px;
   }
 
-.breadcrumb li+li:before {
+  .doc-container .breadcrumb li+li:before {
     padding: 0 5px 0 5px;
     content: '/';
   }
 
 
-.page-body {
+  .doc-container .page-body {
     background-color: #f4f4f4;
     padding: 20px 0px;
     min-height: 700px;
