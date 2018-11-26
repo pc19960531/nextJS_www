@@ -56,12 +56,12 @@ class IBOUnion extends Component {
                     <ol className="breadcrumb">
                         <li>
                             <Link href="/index">
-                                <a data-i18n-text="ToHome">首页</a>
+                                <a style={{ cursor: 'pointor', color: '#08c' }}>首页</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/iboUnion">
-                                <a data-i18n-text="IBO_U">IBO 应用创新联盟</a>
+                                <a style={{ cursor: 'pointor', color: '#08c' }}>IBO 应用创新联盟</a>
                             </Link>
 
                         </li>

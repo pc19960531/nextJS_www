@@ -1,6 +1,7 @@
 a, a:active, a:focus, a:hover{
   color: #08c;
   outline: none;
+  text-decoration: none;
 }
 
 .doc-container .container {
@@ -16,16 +17,79 @@ a, a:active, a:focus, a:hover{
     color: #fff;
 }
 
-
-
 .doc-container .breadcrumb {
-    background-color: transparent;
-    list-style: none;
-    font-size: 16px;
-    line-height: 24px;
-    padding: 20px 0px;
-    margin: 0px;
+  background-color: transparent;
+  list-style: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 20px 0px;
+  margin: 0px;
+}
+
+@media (max-width: 479px) {
+    body {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 29px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    pre code {
+      font-size: 11px;
+    }
+    .social-share {
+      zoom: 80%;
+    }
+    .navbar-default {
+      height: 65px;
+    }
+    .navbar-default .navbar-brand img {
+      margin-top: -15px;
+      width: 120px;
+    }
+    .navbar-default .navbar-brand {
+      font-size: 20px;
+      padding-top: 20px;
+    }
+    .navbar-default .navbar-toggle {
+      margin-top: 10px;
+    }
+    .band {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .band .group {
+      font-size: 22px;
+      line-height: 32px;
+    }
+    .page-body {
+      background-color: transparent;
+      border-top: 2px solid #f4f4f4;
+      padding-top: 10px;
+    }
+    .home-os {
+      font-size: 40px;
+      padding: 0px;
+    }
+    .content {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .doc-container .breadcrumb {
+      font-size: 12px;
+      padding: 10px 0px;
+    }
   }
+
+
+
+
+
 
   .doc-container .breadcrumb li+li:before {
     padding: 0 5px 0 5px;

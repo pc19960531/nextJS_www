@@ -26,12 +26,9 @@ const band = ({ id, title }) => (
                     </Link>
                 </li>
                 {
-                    id && <li>
-                        <Link href={`/newsdetail?id=${id}`}>
-                            <a>
-                                {title}
-                            </a>
-                        </Link>
+                    id &&
+                    <li>
+                        &nbsp;{title}
                     </li>
                 }
             </ol>
