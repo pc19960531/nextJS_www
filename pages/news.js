@@ -1,8 +1,8 @@
 import React from 'react'
 import layout from '../components/Layout'
-import '../css/index.scss'
 import Link from 'next/link'
 import '../css/news.scss'
+import '../css/common.scss'
 import Band from '../components/news/Band'
 import post from '../utils/request'
 

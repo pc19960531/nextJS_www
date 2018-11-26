@@ -4,6 +4,7 @@ import layout from '../components/Layout'
 import { withRouter } from 'next/router'
 import post from '../utils/request'
 import Link from 'next/link'
+import '../css/news.scss'
 
 class Newdetail extends Component {
     state = {

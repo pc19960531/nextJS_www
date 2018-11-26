@@ -182,41 +182,10 @@
 //   }
 
 
-.doc-container .container {
-    width: 100%;
-    max-width: 100%;
-    font-family: Avenir, Segoe UI, Arial, Hiragino Sans GB, 冬青黑, Microsoft YaHei, 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
-}
-
-.band .group {
-    font-size: 32px;
-    line-height: 44px;
-    font-weight: 600;
-    color: #fff;
-}
 
 
 
-.breadcrumb {
-    background-color: transparent;
-    list-style: none;
-    font-size: 16px;
-    line-height: 24px;
-    padding: 20px 0px;
-    margin: 0px;
-  }
 
-.breadcrumb li+li:before {
-    padding: 0 5px 0 5px;
-    content: '/';
-  }
-
-
-.page-body {
-    background-color: #f4f4f4;
-    padding: 20px 0px;
-    min-height: 700px;
-  }
 
 .page-body .container.row .new-item {
     padding: 20px 40px 1px 40px;

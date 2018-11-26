@@ -2,6 +2,7 @@ import { Component } from 'react'
 import layout from '../components/Layout'
 import Link from 'next/link'
 import '../css/faq.scss'
+import '../css/common.scss'
 import { Panel, PanelGroup } from 'react-bootstrap'
 import post from '../utils/request'
 class FAQ extends Component {
@@ -29,96 +30,90 @@ class FAQ extends Component {
     render() {
         const { classify, qaList, classifyName } = this.state;
         return (
-            <div className="inside-container">
-
-                <div className="band">
-                    <div className="container">
-                        <span className="group" id="FAQ_T">
-
-                            指南
-                </span>
-
-                    </div>
-                </div>
-                <div className="container">
-                    <ol className="breadcrumb">
-                        <li>
-                            <Link href="/index">
-                                <a data-i18n-text="ToHome">首页</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/iboUnion">
-                                <a data-i18n-text="IBO_U">指南</a>
-                            </Link>
-                        </li>
-                        {
-                            classifyName &&
-                            <li>
-                                {classifyName}
-                            </li>
-                        }
-                    </ol>
-                </div>
-                <div className="page-body">
-                    <div className="container row">
-                        <div className="sidebar hidden-xs col-lg-2">
-                            <div className="panel-group" id="accordion" role="tablist">
-                                {
-                                    classify.length > 0 && classify.map((ele) => (
-                                        <div className="card">
-                                            <div className="card-header" role="tab" id="headingOne">
-                                                <h4 className="card-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" onClick={() => {
-                                                        post('/1.0/app/web/faq', { lang: 'zh-cn', id: ele.id }).then((res) => {
-                                                            this.setState({
-                                                                classify: res.classify,
-                                                                qaList: res.qa,
-                                                                classifyId: ele.id,
-                                                                classifyName: ele.name
-                                                            })
-                                                        }).catch((err) => {
-                                                            alert("系统异常，请稍后再试！")
-                                                        })
-                                                    }}>
-                                                        {ele.name}
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
+            <div className="doc-container">
+                <div className="inside-container">
+                    <div className="band">
+                        <div className="container">
+                            <span className="group" id="FAQ_T">
+                                指南
+                        </span>
                         </div>
-                        <div className="col-lg-10">
-                            {/* <Panel>
-                                <Panel.Heading>Panel heading without a title</Panel.Heading>
-                                <Panel.Body>Panel content</Panel.Body>
-                            </Panel> */}
-
-                            <div id="accordion">
-                                {
-                                    qaList.length > 0 && qaList.map((ele, index) => (
-                                        <div className="faq" key={index}>
-                                            <div className="faq-header" id={`heading${index}`}>
-                                                <h2 className="h2 collapsed" data-toggle="collapse" data-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`}>
-                                                    {ele.question}
-                                                </h2>
-                                            </div>
-                                            <div id={`collapse${index}`} className="collapse" aria-labelledby={`heading${index}`} data-parent="#accordion">
-                                                <div className="faq-body" dangerouslySetInnerHTML={{ __html: ele.answer }} >
+                    </div>
+                    <div className="container">
+                        <ol className="breadcrumb">
+                            <li>
+                                <Link href="/index">
+                                    <a data-i18n-text="ToHome">首页</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/iboUnion">
+                                    <a data-i18n-text="IBO_U">指南</a>
+                                </Link>
+                            </li>
+                            {
+                                classifyName &&
+                                <li>
+                                    {classifyName}
+                                </li>
+                            }
+                        </ol>
+                    </div>
+                    <div className="page-body">
+                        <div className="container row">
+                            <div className="sidebar hidden-xs col-lg-2">
+                                <div className="panel-group" id="accordion" role="tablist">
+                                    {
+                                        classify.length > 0 && classify.map((ele) => (
+                                            <div className="card">
+                                                <div className="card-header" role="tab" id="headingOne">
+                                                    <h4 className="card-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" onClick={() => {
+                                                            post('/1.0/app/web/faq', { lang: 'zh-cn', id: ele.id }).then((res) => {
+                                                                this.setState({
+                                                                    classify: res.classify,
+                                                                    qaList: res.qa,
+                                                                    classifyId: ele.id,
+                                                                    classifyName: ele.name
+                                                                })
+                                                            }).catch((err) => {
+                                                                alert("系统异常，请稍后再试！")
+                                                            })
+                                                        }}>
+                                                            {ele.name}
+                                                        </a>
+                                                    </h4>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )
-                                    )
-                                }
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                            <div className="col-lg-10">
+                                <div id="accordion">
+                                    {
+                                        qaList.length > 0 && qaList.map((ele, index) => (
+                                            <div className="faq" key={index}>
+                                                <div className="faq-header" id={`heading${index}`}>
+                                                    <h2 className="h2 collapsed" data-toggle="collapse" data-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`}>
+                                                        {ele.question}
+                                                    </h2>
+                                                </div>
+                                                <div id={`collapse${index}`} className="collapse" aria-labelledby={`heading${index}`} data-parent="#accordion">
+                                                    <div className="faq-body" dangerouslySetInnerHTML={{ __html: ele.answer }} >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                        )
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-            </div >
+                    </div>
+                </div >
+            </div>
         )
     }
 
