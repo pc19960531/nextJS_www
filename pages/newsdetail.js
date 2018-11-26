@@ -40,7 +40,7 @@ class Newdetail extends Component {
         const { details, recommends } = this.state;
         return (
             <div className="doc-container">
-                <div classNameName="inside-container">
+                <div className="inside-container">
                     <Band id={this.props.router.query.id} title={details.title} />
                     <div className="page-body">
                         <div className="container row">

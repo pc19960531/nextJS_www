@@ -22,7 +22,8 @@ class Index extends React.Component {
 
 
     state = {
-        data: {}
+        data: {},
+        newsList: []
     }
 
     getChildContext() {
@@ -55,11 +56,17 @@ class Index extends React.Component {
             alert("系统异常，请稍后再试！")
         })
 
+        post('/1.0/app/web/news', { lang: 'zh-cn' }).then((newsList) => {
+            this.setState({ newsList: newsList.news })
+        }).catch((err) => {
+            alert("系统异常，请稍后再试！")
+        })
+
     }
     render() {
         return (
             <div>
-                <VideoComponent />
+                <VideoComponent newsList={this.state.newsList} />
                 <DiscComponent />
                 <PicShowComponent language={this.props.language} />
                 <FODataComponent data={this.state.data} language={this.props.language} />

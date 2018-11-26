@@ -221,9 +221,7 @@
   
 
   
-//   .doc-container>.inside-container>.page-body .card:not(:first-child) {
-//     margin-top: 5px;
-//   }
+
   
 
   
@@ -397,4 +395,9 @@
   .faq .faq-body iframe {
     max-width: 100% !important;
     display: block;
+  }
+
+
+.doc-container>.inside-container>.page-body .card:not(:first-child) {
+    margin-top: 5px;
   }

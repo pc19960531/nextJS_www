@@ -4,10 +4,6 @@ import { Carousel } from 'react-bootstrap'
 import PropTypes from 'prop-types';
 
 class VideoComponent extends Component {
-    state = {
-        newsList: [
-        ]
-    }
 
     componentDidMount() {
         let newsList = [
@@ -31,8 +27,8 @@ class VideoComponent extends Component {
         }, 400)
     }
     render() {
-        const { newsList } = this.state;
         const language = this.context.language;
+        const newsList = this.props.newsList
         return (
             <div className="index-video">
                 <div className="video-wrap">
@@ -78,7 +74,7 @@ class VideoComponent extends Component {
                                         {
                                             newsList.map((ele, index) => (
                                                 <Carousel.Item key={index}>
-                                                    <Link href={`/detail/${ele.id}`}>
+                                                    <Link href={`/newsdetail?id=${ele.id}`}>
                                                         <a target="_blank">
                                                             <div className="news-content row">
                                                                 <div className="news-title col-12 text-left">
