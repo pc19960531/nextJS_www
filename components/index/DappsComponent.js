@@ -140,7 +140,7 @@ export default ({ language }) => (
                         <div className="row">
                             <div className="dapp"><a href="https://www.fibos123.com/" target="_blank" className="link">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/dapp11.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/dapp11.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.FIBOSLo}
@@ -153,7 +153,7 @@ export default ({ language }) => (
                             </a></div>
                             <div className="dapp"><a href="https://fibos.slowmist.io/" target="_blank" className="link">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/dapp12.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/dapp12.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.Slow}
@@ -166,7 +166,7 @@ export default ({ language }) => (
                             </a></div>
                             <div className="dapp"><a href="http://www.fotoken.io" target="_blank" className="link">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/dapp14.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/dapp14.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">FoToken</h5>
                                         <p className="card-text">
@@ -177,7 +177,7 @@ export default ({ language }) => (
                             </a></div>
                             <div className="dapp lastVas">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/vasimg.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.VacantSeat}
@@ -190,7 +190,7 @@ export default ({ language }) => (
                         <div className="row">
                             <div className="dapp lastVas" id="Vs2">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/vasimg.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.VacantSeat}
@@ -201,7 +201,7 @@ export default ({ language }) => (
                             </div>
                             <div className="dapp lastVas" id="Vs3">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/vasimg.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.VacantSeat}
@@ -212,7 +212,7 @@ export default ({ language }) => (
                             </div>
                             <div className="dapp lastVas" id="Vs4">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/vasimg.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.VacantSeat}
@@ -223,7 +223,7 @@ export default ({ language }) => (
                             </div>
                             <div className="dapp lastVas" id="Vs5">
                                 <div className="card">
-                                    <div className="card-img-top"><img src="imgs/vasimg.png" alt="" /></div>
+                                    <div className="card-img-top"><img src="/imgs/vasimg.png" alt="" /></div>
                                     <div className="card-body">
                                         <h5 className="card-title">
                                             {language.VacantSeat}

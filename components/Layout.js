@@ -9,7 +9,8 @@ export default function layout(Component, isIndex) {
     return class extends React.Component {
         static getInitialProps({ req }) {
             const agent = userAgent(req)
-            let language = en_us;
+            let path = req.route.path
+            let language = path.indexOf('zh-cn') === -1 ? zh_cn : en_us;
             return { language, agent }
         }
         render() {

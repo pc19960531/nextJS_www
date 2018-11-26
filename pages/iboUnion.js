@@ -4,7 +4,44 @@ import Link from 'next/link'
 import '../css/iboUnion.scss'
 
 class IBOUnion extends Component {
+
+    state = {
+        projectName: "",//项目名称
+        projectSummary: "",//项目概况
+        companyName: "",//公司名称
+        contact: "",//联系人
+        phone: "",//电话
+        email: "",//邮箱
+        country: "",//国家
+        province: "",//省
+        city: "",//市
+        area: "",//区
+        detail: "",//详细地址
+        postalCode: ""//邮编
+    }
+
+    onChangeValue = (e) => {
+        let name = e.target.name
+        let changeObj = {}
+        changeObj[name] = e.target.value;
+        this.setState(changeObj)
+    }
+
     render() {
+        const {
+            projectName,
+            projectSummary,
+            companyName,
+            contact,
+            phone,
+            email,
+            country,
+            province,
+            city,
+            area,
+            detail,
+            postalCode
+        } = this.state;
         return (
             <div>
                 <div className="band">
@@ -284,61 +321,57 @@ class IBOUnion extends Component {
                                     <div className="wrap">
                                         <span id="Project_Name">
                                             项目名称
-                                    </span>
+                                        </span>
                                         <label>
                                             *
-                                    </label>
-                                        <input placeholder="请输入" name="projectName" />
+                                        </label>
+                                        <input placeholder="请输入" name="projectName" defaultValue="" value={projectName} onChange={e => this.onChangeValue(e)} />
                                     </div>
                                     <div className="wrap">
                                         <span id="Project_Overview">
                                             项目概况
-                                    </span>
+                                        </span>
                                         <label>
                                             *
-                                    </label>
+                                        </label>
                                         <p>
-                                            <textarea rows="3" cols="20" maxlength="1000" placeholder="请输入" name="projectSummary"></textarea>
+                                            <textarea rows="3" cols="20" maxLength="1000" placeholder="请输入" name="projectSummary" value={projectSummary} onChange={e => this.onChangeValue(e)} ></textarea>
                                         </p>
-
-
-
                                     </div>
                                     <div className="wrap">
                                         <span id="Team_Name">
                                             公司 / 团队名称
-                                    </span>
+                                        </span>
                                         <label>
                                             *
-                                    </label>
-                                        <input placeholder="请输入" name="companyName" />
+                                        </label>
+                                        <input placeholder="请输入" name="companyName" value={companyName} onChange={e => this.onChangeValue(e)} />
                                     </div>
                                     <div className="wrap">
                                         <div className="row">
                                             <div className="col-4">
                                                 <span id="Contact">
                                                     联系人
-                                            </span>
+                                                </span>
                                                 <label>
                                                     *
-                                            </label>
-                                                <input placeholder="请输入" name="contact" />
+                                                </label>
+                                                <input placeholder="请输入" name="contact" value={contact} onChange={e => this.onChangeValue(e)} />
                                             </div>
                                             <div className="col-4">
                                                 <span id="Phone_Num">
                                                     电话
-                                            </span>
+                                                </span>
                                                 <label>
                                                     *
-                                            </label>
-                                                <input placeholder="请输入" name="phone" />
+                                                </label>
+                                                <input placeholder="请输入" name="phone" value={phone} onChange={e => this.onChangeValue(e)} />
                                             </div>
-
                                             <div className="col-4">
                                                 <span id="Email">
                                                     邮箱
-                                            </span>
-                                                <input placeholder="请输入" name="email" autocomplete="false" />
+                                                </span>
+                                                <input placeholder="请输入" name="email" autoComplete="false" value={email} onChange={e => this.onChangeValue(e)} />
                                             </div>
                                         </div>
                                     </div>
@@ -346,7 +379,7 @@ class IBOUnion extends Component {
                                     <div className="wrap">
                                         <span id="Address">
                                             地址
-                                    </span>
+                                        </span>
                                         <div className="row">
                                             <div className="col-3">
                                                 <input placeholder="国家" name="country" value="中国" />
@@ -363,23 +396,23 @@ class IBOUnion extends Component {
                                                         <select name="area"></select>
                                                     </div>
                                                 </div>
-
                                             </div>
-
                                         </div>
                                         <div className="row">
                                             <div className="col-9">
-                                                <input placeholder="详细地址" name="detail" />
+                                                <input placeholder="详细地址" name="detail" value={detail} onChange={e => this.onChangeValue(e)} />
                                             </div>
                                             <div className="col-3">
-                                                <input placeholder="邮编" name="postalCode" />
+                                                <input placeholder="邮编" name="postalCode" value={postalCode} onChange={e => this.onChangeValue(e)} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="wrap">
-                                        <button id="submit-ibo">
+                                        <button id="submit-ibo" onClick={() => {
+
+                                        }}>
                                             提交
-                                    </button>
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-4">

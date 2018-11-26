@@ -57,7 +57,7 @@ export default ({ language }) => (
                         <div className="col-lg-5 col-md-8 col-xs-12 bottom-right">
                             <div className="row">
                                 <div className="col-sm-4 col-xs-12">
-                                    <img src="imgs/logo.png" />
+                                    <img src="/imgs/logo.png" />
                                 </div>
                                 <div className="col-sm-8 col-xs-12">
                                     <div className="toptext">
@@ -87,19 +87,22 @@ export default ({ language }) => (
                             LTD
                             All
                             Rights Reserved
-                </div>
                     </div>
-                    <div className="col-xs-12 col-sm-12 col-md-6">
-                        <ul className="social-media">
-                            <li><a href="https://weibo.com/u/6563835901?" target="_blank"><img src="imgs/wb.png" alt="" /></a></li>
-                            <li><a className="qrcodeContainer" href="javascript:void(0)"><img src="imgs/wechat.png" alt="" />
-                                <img className="qrcodeImg" src="imgs/qrcode.jpeg" alt="" /></a></li>
-                            <li><a href="https://twitter.com/fibos_io" target="_blank"><img src="imgs/twitter.png" alt="" /></a></li>
-                            <li><a href="https://t.me/FIBOSIO" target="_blank"><img src="imgs/telegram.png" alt="" /></a></li>
-                            <li><a href="https://github.com/FIBOSIO" target="_blank"><img src="imgs/github.png" alt="" /></a></li>
+                    </div>
+                    {
+                        language.Lang === "zh_cn" &&
+                        <div className="col-xs-12 col-sm-12 col-md-6">
+                            <ul className="social-media">
+                                <li><a href="https://weibo.com/u/6563835901?" target="_blank"><img src="/imgs/wb.png" alt="" /></a></li>
+                                <li><a className="qrcodeContainer" href="javascript:void(0)"><img src="/imgs/wechat.png" alt="" />
+                                    <img className="qrcodeImg" src="/imgs/qrcode.jpeg" alt="" /></a></li>
+                                <li><a href="https://twitter.com/fibos_io" target="_blank"><img src="/imgs/twitter.png" alt="" /></a></li>
+                                <li><a href="https://t.me/FIBOSIO" target="_blank"><img src="/imgs/telegram.png" alt="" /></a></li>
+                                <li><a href="https://github.com/FIBOSIO" target="_blank"><img src="/imgs/github.png" alt="" /></a></li>
 
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    }
                 </div>
             </div>
         </footer>

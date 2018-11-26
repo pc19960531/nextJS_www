@@ -4,9 +4,9 @@ const band = ({ id, title }) => (
     <div>
         <div className="band">
             <div className="container">
-                <span className="group" data-i18n-text="News">
+                <span className="group">
                     新闻中心
-                        </span>
+                </span>
             </div>
         </div>
         <div className="container">
@@ -21,7 +21,7 @@ const band = ({ id, title }) => (
                 <li>
                     <Link href="/news">
                         <a>
-                            新闻
+                        新闻中心
                         </a>
                     </Link>
                 </li>

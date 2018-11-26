@@ -217,11 +217,14 @@ class DiscComponent extends React.Component {
                             <div className="clear">
                             </div>
                         </div>
-                        <div className="disc-ibo">
-                            <Link href="/iboUnion" >
-                                <a id="IBO" target="_blank">{language.IBO}</a>
-                            </Link>
-                        </div>
+                        {
+                            language.Lang === "zh_cn" &&
+                            <div className="disc-ibo">
+                                <Link href="/iboUnion" >
+                                    <a id="IBO" target="_blank">{language.IBO}</a>
+                                </Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

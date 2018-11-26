@@ -65,7 +65,10 @@ class Index extends React.Component {
                 <FODataComponent data={this.state.data} language={this.props.language} />
                 <RoadMapComponent language={this.props.language} />
                 <CooComponent language={this.props.language} />
-                <DappsComponent language={this.props.language} />
+                {
+                    this.props.language.Lang === "zh_cn" &&
+                    <DappsComponent language={this.props.language} />
+                }
                 <TeleGramComponent />
             </div>
         )

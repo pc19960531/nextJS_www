@@ -1,7 +1,9 @@
 import '../css/Header.scss'
+import '../css/common.scss'
 import Link from 'next/link'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-
+import en from '../imgs/en.png'
+import zh from '../imgs/zh.png'
 
 const Header = ({ isIndex = false, language }) => (
     <div className={`index-title toptitle ${isIndex ? '' : 'p-relative'}`}>
@@ -35,15 +37,19 @@ const Header = ({ isIndex = false, language }) => (
                         <a className="nav-link">{language.News}</a>
                     </Link>
                     <Nav.Link href="http://bbs.fibos.io" >{language.Community}</Nav.Link>
-                    <Link href='/faq'>
-                        <a className="nav-link">{language.FAQ}</a>
-                    </Link>
-                    <NavDropdown title="中文" id="collasible-nav-dropdown">
+                    {
+                        language.Lang === "zh_cn" &&
+                        <Link href='/faq'>
+                            <a className="nav-link">{language.FAQ}</a>
+                        </Link>
+                    }
+
+                    <NavDropdown title={<img src={language.Lang === "zh_cn" ? zh : en} />} id="collasible-nav-dropdown">
                         <NavDropdown.Item>
-                            中文
+                            <img src={zh} />
                         </NavDropdown.Item>
                         <NavDropdown.Item >
-                            English
+                            <img src={en} />
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
