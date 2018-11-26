@@ -4,6 +4,27 @@
     font-family: Avenir, Segoe UI, Arial, Hiragino Sans GB, 冬青黑, Microsoft YaHei, 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
 }
 
+
+.ibo-union .page-body {
+    background-color: #f4f4f4;
+    padding: 20px 0px;
+    min-height: 700px;
+  }
+
+.ibo-union .breadcrumb {
+    background-color: transparent;
+    list-style: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 20px 0px;
+    margin: 0px;
+  }
+
+.ibo-union .breadcrumb li+li:before {
+    padding: 0 5px 0 5px;
+    content: '/';
+  }
+
 .ibo-show {
     display: flex;
     flex-wrap: wrap;

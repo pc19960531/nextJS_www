@@ -13,15 +13,15 @@ const band = ({ id, title }) => (
             <ol className="breadcrumb">
                 <li>
                     <Link href="/index">
-                        <a>
+                        <a style={{ cursor: 'pointor', color: '#08c' }}>
                             首页
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/news">
-                        <a>
-                        新闻中心
+                        <a style={{ cursor: 'pointor', color: '#08c' }}>
+                            新闻中心
                         </a>
                     </Link>
                 </li>

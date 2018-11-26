@@ -112,12 +112,7 @@
   
 
   
-//   @media (max-width: 768px) {
-//     .page-body .container.row .news-rec-container {
-//       margin-top: 20px;
-//       padding: 0;
-//     }
-//   }
+
   
 
   
@@ -231,4 +226,11 @@
 
 .page-body .container.row {
     margin: 0 auto !important;
+  }
+
+@media (max-width: 768px) {
+    .page-body .container.row .news-rec-container {
+      margin-top: 20px;
+      padding: 0;
+    }
   }

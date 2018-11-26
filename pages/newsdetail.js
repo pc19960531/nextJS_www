@@ -59,7 +59,7 @@ class Newdetail extends Component {
                                         {
                                             recommends && recommends.length > 0 && recommends.map((ele, index) => (
                                                 <Link href={`/newsdetail?id=${ele.id}`} key={index}>
-                                                    <a classNameName="rec-item">
+                                                    <a className="rec-item">
                                                         {ele.title}
                                                     </a>
                                                 </Link>

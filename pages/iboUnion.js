@@ -2,6 +2,7 @@ import { Component } from 'react'
 import layout from '../components/Layout'
 import Link from 'next/link'
 import '../css/iboUnion.scss'
+import '../css/common.scss'
 
 class IBOUnion extends Component {
 
@@ -43,7 +44,7 @@ class IBOUnion extends Component {
             postalCode
         } = this.state;
         return (
-            <div>
+            <div className="ibo-union">
                 <div className="band">
                     <div className="container">
                         <span className="group" data-i18n-text="IBO_U_1">
