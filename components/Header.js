@@ -23,24 +23,24 @@ const Header = ({ isIndex = false, language }) => (
                         <a className="nav-link">{language.Home}</a>
                     </Link>
 
-                    <Nav.Link href="https://dev.fo">{language.Developer}</Nav.Link>
-                    <Nav.Link href="https://dapp.fo">{language.DAPP}</Nav.Link>
+                    <Nav.Link href="https://dev.fo" target="_blank">{language.Developer}</Nav.Link>
+                    <Nav.Link href="https://dapp.fo" target="_blank">{language.DAPP}</Nav.Link>
                     <NavDropdown title="FO" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="https://wallet.fo">
+                        <NavDropdown.Item href="https://wallet.fo" target="_blank">
                             {language.Wallet}
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/5b8b51baaba908441dbbfc81.html">
+                        <NavDropdown.Item href="/5b8b51baaba908441dbbfc81.html" target="_blank">
                             {language.FO_Exchange}
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Link href='/news'>
-                        <a className="nav-link">{language.News}</a>
+                        <a className="nav-link" target="_blank">{language.News}</a>
                     </Link>
-                    <Nav.Link href="http://bbs.fibos.io" >{language.Community}</Nav.Link>
+                    <Nav.Link href="http://bbs.fibos.io" target="_blank">{language.Community}</Nav.Link>
                     {
                         language.Lang === "zh_cn" &&
                         <Link href='/faq'>
-                            <a className="nav-link">{language.FAQ}</a>
+                            <a className="nav-link" target="_blank">{language.FAQ}</a>
                         </Link>
                     }
 

@@ -34,7 +34,7 @@ class FAQ extends Component {
                 <div className="inside-container">
                     <div className="band">
                         <div className="container">
-                            <span className="group" id="FAQ_T">
+                            <span className="group">
                                 指南
                         </span>
                         </div>
@@ -43,12 +43,12 @@ class FAQ extends Component {
                         <ol className="breadcrumb">
                             <li>
                                 <Link href="/index">
-                                    <a data-i18n-text="ToHome">首页</a>
+                                    <a style={{ cursor: 'pointor', color: '#08c' }}>首页</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/iboUnion">
-                                    <a data-i18n-text="IBO_U">指南</a>
+                                <Link href="/faq">
+                                    <a style={{ cursor: 'pointor', color: '#08c' }}>指南</a>
                                 </Link>
                             </li>
                             {

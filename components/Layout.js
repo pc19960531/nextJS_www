@@ -11,12 +11,13 @@ export default function layout(Component, isIndex) {
             const agent = userAgent(req)
             let path = "";
             let language = path.indexOf('zh-cn') === -1 ? zh_cn : en_us;
-            return { language, agent }
+            let isNews = path.indexOf('newsDetail') !== -1 ? true : false;
+            return { language, agent, isNews }
         }
         render() {
             return (
                 <div>
-                    <Head />
+                    <Head isNews={this.props.isNews} />
                     <Header isIndex={isIndex} language={this.props.language} />
                     <Component agent={this.props.agent} language={this.props.language} />
                     <Footer language={this.props.language} />

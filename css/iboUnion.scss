@@ -50,6 +50,26 @@
     background: white;
 }
 
+.ibo-union .pickPage{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.ibo-union .pickPage .pick{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.ibo-union .pickPage .number{
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.ibo-union .pickPage .number.active{
+    color: #1098dd
+}
+
 .ibo-tojoin label {
     font-size: 25px;
     color: red;

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default ({ language }) => (
     <div>
         <div className="index-banner">
@@ -27,7 +29,7 @@ export default ({ language }) => (
                                     <h5>{language.Recommended}</h5>
                                     <ul>
                                         <li>
-                                            <a href="https://dev.fo" id="Documentation_f" target="_blank">{language.Developer}</a>
+                                            <a href="https://dev.fo" target="_blank">{language.Developer}</a>
                                         </li>
                                         <li>
                                             <a href="https://dapp.fo" target="_blank">{language.DAPP}</a>
@@ -48,7 +50,9 @@ export default ({ language }) => (
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/faq.html">{language.FAQ}</a>
+                                            <Link href="/faq">
+                                                <a>{language.FAQ}</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>

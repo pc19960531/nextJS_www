@@ -3,6 +3,8 @@ import layout from '../components/Layout'
 import Link from 'next/link'
 import '../css/iboUnion.scss'
 import '../css/common.scss'
+import areaData from '../utils/areaData'
+import post from '../utils/request'
 
 class IBOUnion extends Component {
 
@@ -14,11 +16,15 @@ class IBOUnion extends Component {
         phone: "",//电话
         email: "",//邮箱
         country: "",//国家
-        province: "",//省
+        province: "",//省编码
+        province_name: "",//省名称
         city: "",//市
+        city_name: "",//市名称
         area: "",//区
+        area_name: "",//区名称
         detail: "",//详细地址
-        postalCode: ""//邮编
+        postalCode: "",//邮编
+        page: 1
     }
 
     onChangeValue = (e) => {
@@ -41,13 +47,42 @@ class IBOUnion extends Component {
             city,
             area,
             detail,
-            postalCode
+            postalCode,
+            city_name,
+            province_name,
+            area_name,
+            page
         } = this.state;
+        let data = areaData;
+        let choosePro = [], chooseCitys = [], chooseAreas = [];
+        for (let i in data.provinces) {
+            choosePro.push([i, data.provinces[i].name])
+        }
+        choosePro = choosePro.map((item) => (
+            <option value={item[0]} name={item[1]}>{item[1]}</option>
+        ))
+        if (province) {
+            for (let i in data.provinces[province].citys) {
+                chooseCitys.push([i, data.provinces[province].citys[i].name])
+            }
+            chooseCitys = chooseCitys.map((item) => (
+                <option value={item[0]} name={item[1]}>{item[1]}</option>
+            ))
+        }
+
+        if (province && city) {
+            for (let i in data.provinces[province].citys[city].countys) {
+                chooseAreas.push([i, data.provinces[province].citys[city].countys[i].name])
+            }
+            chooseAreas = chooseAreas.map((item) => (
+                <option value={item[0]} name={item[1]}>{item[1]}</option>
+            ))
+        }
         return (
             <div className="ibo-union">
                 <div className="band">
                     <div className="container">
-                        <span className="group" data-i18n-text="IBO_U_1">
+                        <span className="group">
                             IBO 应用创新联盟
                     </span>
                     </div>
@@ -74,195 +109,337 @@ class IBOUnion extends Component {
                                 联盟成员
                         </h2>
                             <div className="ibo-show">
-
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=151"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">怼怼语音</div>
+                                {
+                                    page === 1 &&
+                                    <div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=151"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">怼怼语音</div>
+                                                </div>
+                                                <div className="name">怼怼语音</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">怼怼语音</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=161"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">小艾净水</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=161"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">小艾净水</div>
+                                                </div>
+                                                <div className="name">小艾净水</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">小艾净水</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=164"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">星空联盟</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=164"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">星空联盟</div>
+                                                </div>
+                                                <div className="name">星空联盟</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">星空联盟</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=166"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">区块恋：一生有你</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=166"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">区块恋：一生有你</div>
+                                                </div>
+                                                <div className="name">区块恋：一生有你</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">区块恋：一生有你</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=170"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">PA社交网络</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=170"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">PA社交网络</div>
+                                                </div>
+                                                <div className="name">PA社交网络</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">PA社交网络</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=174"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">Michain数字资产管理</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=174"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">Michain数字资产管理</div>
+                                                </div>
+                                                <div className="name">Michain数字资产管理</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">Michain数字资产管理</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=173"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">积点</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=173"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">积点</div>
+                                                </div>
+                                                <div className="name">积点</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">积点</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=172"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">来问</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=172"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">来问</div>
+                                                </div>
+                                                <div className="name">来问</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">来问</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=169"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">图来啦</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=169"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">图来啦</div>
+                                                </div>
+                                                <div className="name">图来啦</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">图来啦</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=168"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">Minority Win</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=168"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">Minority Win</div>
+                                                </div>
+                                                <div className="name">Minority Win</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">Minority Win</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=167"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">转发链</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=167"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">转发链</div>
+                                                </div>
+                                                <div className="name">转发链</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">转发链</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=165"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">生命链</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=165"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">生命链</div>
+                                                </div>
+                                                <div className="name">生命链</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">生命链</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=171"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">Genesis游戏</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=171"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">Genesis游戏</div>
+                                                </div>
+                                                <div className="name">Genesis游戏</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">Genesis游戏</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=163"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">健无忧</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=163"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">健无忧</div>
+                                                </div>
+                                                <div className="name">健无忧</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">健无忧</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=191"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">源之链</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=191"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">源之链</div>
+                                                </div>
+                                                <div className="name">源之链</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">源之链</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=160"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">SCSC智能公链</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=160"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">SCSC智能公链</div>
+                                                </div>
+                                                <div className="name">SCSC智能公链</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">SCSC智能公链</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=159"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">BGX Farm</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=159"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">BGX Farm</div>
+                                                </div>
+                                                <div className="name">BGX Farm</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">BGX Farm</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=158"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
-                                            <div className="ibo-name">通证助手</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=158"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-3.png" />
+                                                    <div className="ibo-name">通证助手</div>
+                                                </div>
+                                                <div className="name">通证助手</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">通证助手</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=157"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
-                                            <div className="ibo-name">熵医生</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=157"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-1.png" />
+                                                    <div className="ibo-name">熵医生</div>
+                                                </div>
+                                                <div className="name">熵医生</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">熵医生</div>
-                                    </a></div>
-                                </div>
-                                <div className="ibo-panel">
-                                    <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=156"
-                                        target="_blank">
-                                        <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
-                                            <div className="ibo-name">加密星球</div>
+                                        <div className="ibo-panel">
+                                            <div className="ibo-content"><a href="http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=156"
+                                                target="_blank">
+                                                <div className="ibo-bgimg"><img src="../imgs/ibobg-2.png" />
+                                                    <div className="ibo-name">加密星球</div>
+                                                </div>
+                                                <div className="name">加密星球</div>
+                                            </a></div>
                                         </div>
-                                        <div className="name">加密星球</div>
-                                    </a></div>
-                                </div>
+                                    </div>
+                                }
+                                {
+                                    page === 2 &&
+                                    <div class='ibo-show'>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=155' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-3.png' />
+                                                        <div class='ibo-name'>Connectchain</div>
+                                                    </div>
+                                                    <div class='name'>Connectchain</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=154' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-1.png' />
+                                                        <div class='ibo-name'>佰联广告分享联盟</div>
+                                                    </div>
+                                                    <div class='name'>佰联广告分享联盟</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&module=forums&controller=topic&id=183' target='_blank'>
+                                                    <div class='ibo-bgimg'><img src='imgs/ibobg-2.png' />
+                                                        <div class='ibo-name'>FINX</div></div>
+                                                    <div class='name'>FINX</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=179' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-3.png' />
+                                                        <div class='ibo-name'>叮咚钱包DDPocket</div>
+                                                    </div>
+                                                    <div class='name'>叮咚钱包DDPocket</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'><a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=153' target='_blank'>
+                                                <div class='ibo-bgimg'>
+                                                    <img src='imgs/ibobg-1.png' />
+                                                    <div class='ibo-name'>引力</div>
+                                                </div>
+                                                <div class='name'>引力</div>
+                                            </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=152' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-2.png' />
+                                                        <div class='ibo-name'>FO谜语</div>
+                                                    </div>
+                                                    <div class='name'>FO谜语</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=176' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-3.png' />
+                                                        <div class='ibo-name'>Onedex</div>
+                                                    </div>
+                                                    <div class='name'>Onedex</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=175' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-1.png' />
+                                                        <div class='ibo-name'>加密邮件系统</div>
+                                                    </div>
+                                                    <div class='name'>加密邮件系统</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='ibo-panel'>
+                                            <div class='ibo-content'>
+                                                <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=181' target='_blank'>
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='imgs/ibobg-2.png' />
+                                                        <div class='ibo-name'>QOBIT</div>
+                                                    </div>
+                                                    <div class='name'>QOBIT</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
 
-                            <div id="wrap1" className="box">
+                            <div className="pickPage">
+                                <div className="pick" onClick={() => {
+                                    if (page !== 1) {
+                                        this.setState({
+                                            page: page - 1
+                                        })
+                                    }
+                                    window.scrollTo(0, 0)
+                                }}>
+                                    {'<'}
+                                </div>
+                                <span
+                                    className={`number ${page === 1 && 'active'}`}
+                                    onClick={() => {
+                                        this.setState({
+                                            page: 1
+                                        })
+                                        window.scrollTo(0, 0)
+                                    }}
+
+                                >1</span>
+                                <span
+                                    className={`number ${page === 2 && 'active'}`}
+                                    onClick={() => {
+                                        this.setState({
+                                            page: 2
+                                        })
+                                        window.scrollTo(0, 0)
+                                    }}
+                                >2</span>
+                                <div className="pick" onClick={() => {
+                                    if (page !== 2) {
+                                        this.setState({
+                                            page: page + 1
+                                        })
+                                        window.scrollTo(0, 0)
+                                    }
+                                }}>
+                                    {'>'}
+                                </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div className="ibo-join">
                         <div className="container">
                             <h2 id="Aims">
@@ -290,7 +467,6 @@ class IBOUnion extends Component {
                                             多层次共享各社区资源
                                     </p>
                                     </div>
-
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-3">
                                     <div className="text-center">
@@ -299,7 +475,6 @@ class IBOUnion extends Component {
                                             多样化共享开发者资源
                                     </p>
                                     </div>
-
                                 </div>
                                 <div className="col-xs-6 col-sm-6 col-md-3">
                                     <div className="text-center">
@@ -311,7 +486,6 @@ class IBOUnion extends Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div className="ibo-tojoin">
@@ -376,7 +550,6 @@ class IBOUnion extends Component {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="wrap">
                                         <span id="Address">
                                             地址
@@ -388,13 +561,49 @@ class IBOUnion extends Component {
                                             <div data-toggle="distpicker" className="col-9 cityselect" id="distpicker">
                                                 <div className="row">
                                                     <div className="col-4">
-                                                        <select name="province"></select>
+                                                        <select
+                                                            onChange={(e) => {
+                                                                console.log("e:" + e.target.name);
+                                                                this.setState({
+                                                                    province: e.target.value,
+                                                                    province_name: e.target.name,
+                                                                    city: "",
+                                                                    area: "",
+                                                                })
+                                                            }}>
+                                                            {
+                                                                choosePro
+                                                            }
+                                                        </select>
                                                     </div>
                                                     <div className="col-4">
-                                                        <select name="city"></select>
+                                                        <select
+                                                            onChange={(e) => {
+                                                                this.setState({
+                                                                    city: e.target.value,
+                                                                    city_name: e.target.name,
+                                                                    area: "",
+                                                                })
+                                                            }}
+                                                        >
+                                                            {
+                                                                chooseCitys
+                                                            }
+                                                        </select>
                                                     </div>
                                                     <div className="col-4">
-                                                        <select name="area"></select>
+                                                        <select
+                                                            onChange={(e) => {
+                                                                this.setState({
+                                                                    area: e.target.value,
+                                                                    area_name: e.target.name,
+                                                                })
+                                                            }}
+                                                        >
+                                                            {
+                                                                chooseAreas
+                                                            }
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -410,7 +619,54 @@ class IBOUnion extends Component {
                                     </div>
                                     <div className="wrap">
                                         <button id="submit-ibo" onClick={() => {
-
+                                            post('/1.0/app/joinLeague',
+                                                {
+                                                    projectName,
+                                                    projectSummary,
+                                                    companyName,
+                                                    contact,
+                                                    phone,
+                                                    email,
+                                                    postalCode,
+                                                    address: province_name + city_name + area_name + detail
+                                                }
+                                            ).then(() => {
+                                                alert('提交成功')
+                                                this.setState({
+                                                    projectName: "",//项目名称
+                                                    projectSummary: "",//项目概况
+                                                    companyName: "",//公司名称
+                                                    contact: "",//联系人
+                                                    phone: "",//电话
+                                                    email: "",//邮箱
+                                                    province: "",//省编码
+                                                    province_name: "",//省名称
+                                                    city: "",//市
+                                                    city_name: "",//市名称
+                                                    area: "",//区
+                                                    area_name: "",//区名称
+                                                    detail: "",//详细地址
+                                                    postalCode: "",//邮编
+                                                })
+                                            }).catch(() => {
+                                                alert("系统异常，请稍后再试！")
+                                                this.setState({
+                                                    projectName: "",//项目名称
+                                                    projectSummary: "",//项目概况
+                                                    companyName: "",//公司名称
+                                                    contact: "",//联系人
+                                                    phone: "",//电话
+                                                    email: "",//邮箱
+                                                    province: "",//省编码
+                                                    province_name: "",//省名称
+                                                    city: "",//市
+                                                    city_name: "",//市名称
+                                                    area: "",//区
+                                                    area_name: "",//区名称
+                                                    detail: "",//详细地址
+                                                    postalCode: "",//邮编
+                                                })
+                                            })
                                         }}>
                                             提交
                                         </button>

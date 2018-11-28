@@ -10,7 +10,7 @@ export default ({ language }) => (
                 </div>
                 <div className="row">
                     <div className="col-md-3 col-xs-6 cooimg col-4">
-                        <a href="https://www.vnscoin.org/" target="_blank">
+                        <a href="http://www.vnscoin.org/" target="_blank">
                             <img src="../imgs/coop6.png" className="coo-pic" />
                         </a>
 
