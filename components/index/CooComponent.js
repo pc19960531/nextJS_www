@@ -21,7 +21,7 @@ export default ({ language }) => (
                         </a>
                     </div>
                     <div className="col-md-3 col-xs-6 cooimg col-4">
-                        <a href="http://d3j.io/" target="_blank">
+                        <a href="http://labs.fo/" target="_blank">
                             <img src="../imgs/coop5.png" className="coo-pic" />
                         </a>
                     </div>
