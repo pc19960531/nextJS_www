@@ -9,10 +9,26 @@ app.prepare()
     .then(() => {
         const server = express()
 
-        server.get('/newsdetail/:id', (req, res) => {
+        server.get('*/newsdetail/:id', (req, res) => {
             const actualPage = '/newsdetail'
-            const queryParams = { id: req.params.id }
+
             app.render(req, res, actualPage, queryParams)
+        })
+
+        server.get('/zh-cn/*', (req, res) => {
+            let url = req.url;
+            let urls = url.split('/')
+            let currentPage = urls[2];
+            const actualPage = '/' + currentPage;
+            app.render(req, res, actualPage)
+        })
+
+        server.get('/en-us/*', (req, res) => {
+            let url = req.url;
+            let urls = url.split('/')
+            let currentPage = urls[2];
+            const actualPage = '/' + currentPage;
+            app.render(req, res, actualPage)
         })
 
         server.get('*/imgs/*', (req, res) => {

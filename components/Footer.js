@@ -94,7 +94,7 @@ export default ({ language }) => (
                     </div>
                     </div>
                     {
-                        language.Lang === "zh_cn" &&
+                        language.Lang === "zh-cn" &&
                         <div className="col-xs-12 col-sm-12 col-md-6">
                             <ul className="social-media">
                                 <li><a href="https://weibo.com/u/6563835901?" target="_blank"><img src="/imgs/wb.png" alt="" /></a></li>

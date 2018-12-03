@@ -2759,6 +2759,27 @@ footer .index-footer .social-media {
   }
 }
 
+.index-discvideo{
+  position: relative;
+  padding: 50px 0;
+  background-image: url(../imgs/bg-video.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 380px;
+}
+
+.index-discvideo .play-btn{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80px;
+  cursor: pointer;
+}
+
+
+
 
 
 

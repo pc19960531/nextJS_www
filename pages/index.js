@@ -8,6 +8,7 @@ import RoadMapComponent from '../components/index/RoadMapComponent'
 import FODataComponent from '../components/index/FODataComponent'
 import CooComponent from '../components/index/CooComponent'
 import DappsComponent from '../components/index/DappsComponent'
+
 import layout from '../components/Layout'
 import post from '../utils/request'
 
@@ -73,7 +74,7 @@ class Index extends React.Component {
                 <RoadMapComponent language={this.props.language} />
                 <CooComponent language={this.props.language} />
                 {
-                    this.props.language.Lang === "zh_cn" &&
+                    this.props.language.Lang === "zh-cn" &&
                     <DappsComponent language={this.props.language} />
                 }
                 <TeleGramComponent />

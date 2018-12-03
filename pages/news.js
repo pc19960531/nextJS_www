@@ -15,7 +15,7 @@ class News extends React.Component {
 
 
     componentDidMount() {
-        post('/1.0/app/web/news', { lang: 'zh-cn' }).then((newsList) => {
+        post('/1.0/app/web/news', { lang: this.props.language.lang }).then((newsList) => {
             this.setState({ newsList: newsList.news, recommendList: newsList.recommends })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")

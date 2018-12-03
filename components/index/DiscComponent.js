@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types';
+import DiscVideoComponent from './DiscVideoComponent'
 class DiscComponent extends React.Component {
 
     choose = [
@@ -164,6 +165,7 @@ class DiscComponent extends React.Component {
                         </div>
                     </div>
                 </div>
+                <DiscVideoComponent />
                 <div className="disc-bottom">
                     <div className="disc-bottom-wrap">
                         <div className="disc-top-title" id="Diversified">
@@ -218,9 +220,9 @@ class DiscComponent extends React.Component {
                             </div>
                         </div>
                         {
-                            language.Lang === "zh_cn" &&
+                            language.Lang === "zh-cn" &&
                             <div className="disc-ibo">
-                                <Link href="/iboUnion" >
+                                <Link href={`/zh-cn/iboUnion`} >
                                     <a id="IBO" target="_blank">{language.IBO}</a>
                                 </Link>
                             </div>
