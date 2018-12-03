@@ -90,7 +90,7 @@ class VideoComponent extends Component {
                                 }
                             </div>
                             <div className="col-3">
-                                <Link href="/news" >
+                                <Link href={`${language.Lang === 'zh-cn' ? "/zh-cn" : "/en-us"}/news`} >
                                     <a>{language.More}</a>
                                 </Link>
                             </div>

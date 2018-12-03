@@ -18,10 +18,10 @@ export default ({ language }) => (
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="../#roadmap">{language.Roadmap_f}</a>
+                                            <a href={`/${language.Lang}/index#roadmap`}>{language.Roadmap_f}</a>
                                         </li>
                                         <li>
-                                            <a href="../#coo">{language.Partners_f}</a>
+                                            <a href={`/${language.Lang}/index#coo`}>{language.Partners_f}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -29,13 +29,13 @@ export default ({ language }) => (
                                     <h5>{language.Recommended}</h5>
                                     <ul>
                                         <li>
-                                            <a href="https://dev.fo" target="_blank">{language.Developer}</a>
+                                            <a href={`https://dev.fo/${language.Lang}`} target="_blank">{language.Developer}</a>
                                         </li>
                                         <li>
-                                            <a href="https://dapp.fo" target="_blank">{language.DAPP}</a>
+                                            <a href={`https://dapp.fo/${language.Lang}`} target="_blank">{language.DAPP}</a>
                                         </li>
                                         <li>
-                                            <a href="https://wallet.fo" target="_blank" id="FOWallet_f">{language.Wallet}</a>
+                                            <a href={`https://wallet.fo/${language.Lang}`} target="_blank">{language.Wallet}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -49,11 +49,14 @@ export default ({ language }) => (
                                                 {language.FO_Exchange}
                                             </a>
                                         </li>
-                                        <li>
-                                            <Link href="/faq">
-                                                <a>{language.FAQ}</a>
-                                            </Link>
-                                        </li>
+                                        {
+                                            language.Lang === "zh-cn" &&
+                                            <li>
+                                                <Link href={`/${language.Lang}/faq`}>
+                                                    <a>{language.FAQ}</a>
+                                                </Link>
+                                            </li>
+                                        }
                                     </ul>
                                 </div>
                             </div>

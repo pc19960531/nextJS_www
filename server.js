@@ -9,9 +9,15 @@ app.prepare()
     .then(() => {
         const server = express()
 
-        server.get('*/newsdetail/:id', (req, res) => {
+        server.get('/zh-cn/newsdetail/:id', (req, res) => {
             const actualPage = '/newsdetail'
+            const queryParams = { id: req.params.id }
+            app.render(req, res, actualPage, queryParams)
+        })
 
+        server.get('/en-us/newsdetail/:id', (req, res) => {
+            const actualPage = '/newsdetail'
+            const queryParams = { id: req.params.id }
             app.render(req, res, actualPage, queryParams)
         })
 

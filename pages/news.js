@@ -15,7 +15,7 @@ class News extends React.Component {
 
 
     componentDidMount() {
-        post('/1.0/app/web/news', { lang: this.props.language.lang }).then((newsList) => {
+        post('/1.0/app/web/news', { lang: this.props.language.Lang }).then((newsList) => {
             this.setState({ newsList: newsList.news, recommendList: newsList.recommends })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")
@@ -28,7 +28,7 @@ class News extends React.Component {
         return (
             <div className="doc-container">
                 <div className="inside-container">
-                    <Band />
+                    <Band lang={language.Lang} />
                     <div className='page-body'>
                         <div className="container row">
                             <div className="col-lg-9 col-md-9 news-list-container">

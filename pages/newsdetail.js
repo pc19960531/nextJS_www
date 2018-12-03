@@ -38,10 +38,11 @@ class Newdetail extends Component {
     }
     render() {
         const { details, recommends } = this.state;
+        const language = this.props.language;
         return (
             <div className="doc-container">
                 <div className="inside-container">
-                    <Band id={this.props.router.query.id} title={details.title} />
+                    <Band id={this.props.router.query.id} title={details.title} lang={language.Lang} />
                     <div className="page-body">
                         <div className="container row">
                             <div className="col-lg-9 col-md-9 news-content-container">
