@@ -47,9 +47,11 @@ const Header = ({ isIndex = false, language }) => (
                     <NavDropdown title={<img src={language.Lang === "zh-cn" ? zh : en} />} id="collasible-nav-dropdown">
                         <NavDropdown.Item href="/zh-cn/index">
                             <img src={zh} />
+                            <span>中文</span>
                         </NavDropdown.Item>
                         <NavDropdown.Item href="/en-us/index">
                             <img src={en} />
+                            <span>English</span>
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>

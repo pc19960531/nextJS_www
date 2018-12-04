@@ -102,6 +102,7 @@ class DiscComponent extends React.Component {
         },
     ]
 
+
     state = {
         discList: [
             {
@@ -131,12 +132,18 @@ class DiscComponent extends React.Component {
     render() {
         const { discList, currentChoose } = this.state;
         const language = this.context.language;
-        let chooseMap = new Map([
+        let zhMap = new Map([
             [`${language.Main_Node}`, this.main_node],
             [`${language.DappDeveloper}`, this.dapp_developer],
             [`${language.Com_Contributor}`, this.doc_contributor],
             [`${language.Volunteer}`, this.volunteer],
         ])
+
+        let enMap = new Map([
+            [`${language.Main_Node}`, this.main_node],
+            [`${language.Volunteer}`, this.volunteer],
+        ])
+        let chooseMap = language.Lang === "zh-cn" ? zhMap : enMap;
         return (
             <div>
                 <div className="index-disc">

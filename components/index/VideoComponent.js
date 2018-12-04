@@ -4,28 +4,6 @@ import { Carousel } from 'react-bootstrap'
 import PropTypes from 'prop-types';
 
 class VideoComponent extends Component {
-
-    componentDidMount() {
-        let newsList = [
-            {
-                id: 1,
-                title: 'fibsos上线1111'
-            },
-            {
-                id: 2,
-                title: 'fibsos上线22222'
-            }, {
-                id: 3,
-                title: 'fibsos上线33333'
-            }, {
-                id: 4,
-                title: 'fibsos上线44444'
-            }
-        ]
-        setTimeout(() => {
-            this.setState({ newsList })
-        }, 400)
-    }
     render() {
         const language = this.context.language;
         const newsList = this.props.newsList
@@ -50,7 +28,7 @@ class VideoComponent extends Component {
                         </div>
                         <div className="link-app animate fly-from-bottom a-delay19">
                             <div className="link">
-                                <a href="https://wallet.fo" target="_blank">
+                                <a href={`https://wallet.fo/${language.Lang}`} target="_blank">
                                     <img src="../imgs/button-green.png" />
                                     <div className="link-content">
                                         <img src="../imgs/icon-download.png" />
@@ -74,7 +52,7 @@ class VideoComponent extends Component {
                                         {
                                             newsList.map((ele, index) => (
                                                 <Carousel.Item key={index}>
-                                                    <Link href={`/newsdetail?id=${ele.id}`}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`}>
                                                         <a target="_blank">
                                                             <div className="news-content row">
                                                                 <div className="news-title col-12 text-left">
@@ -90,7 +68,7 @@ class VideoComponent extends Component {
                                 }
                             </div>
                             <div className="col-3">
-                                <Link href={`${language.Lang === 'zh-cn' ? "/zh-cn" : "/en-us"}/news`} >
+                                <Link href={`/${language.Lang}/news`} >
                                     <a>{language.More}</a>
                                 </Link>
                             </div>
@@ -100,8 +78,6 @@ class VideoComponent extends Component {
             </div>
         )
     }
-
-
 }
 
 VideoComponent.contextTypes = {

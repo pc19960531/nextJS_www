@@ -57,7 +57,7 @@ class Index extends React.Component {
             alert("系统异常，请稍后再试！")
         })
 
-        post('/1.0/app/web/news', { lang: 'zh-cn' }).then((newsList) => {
+        post('/1.0/app/web/news', { lang: this.props.language.Lang }).then((newsList) => {
             this.setState({ newsList: newsList.news })
         }).catch((err) => {
             alert("系统异常，请稍后再试！")

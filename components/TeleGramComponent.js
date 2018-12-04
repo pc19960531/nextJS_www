@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import PropTypes from 'prop-types';
 import axios from 'axios'
+import Link from 'next/link'
 
 class TeleGramComponent extends React.Component {
     constructor(props) {
@@ -126,7 +127,7 @@ class TeleGramComponent extends React.Component {
         var protocol = window.location.protocol
         var host = window.location.host
         //this.socket = new WebSocket(`${protocol.indexOf('https') >= 0 ? 'wss' : 'ws'}://${host}/1.0/push`)
-        this.socket = new WebSocket('wss://115.47.142.152:9090/1.0/push');
+        this.socket = new WebSocket('ws://115.47.142.152:9090/1.0/push');
         //this.socket = new WebSocket('ws://fibos.io/1.0/push');
 
         this.socket.onmessage = e => {
@@ -177,11 +178,9 @@ class TeleGramComponent extends React.Component {
                     </div >
                     <div className="bottom">
                         <div className="bottom-title">
-                            <a onClick={() => {
-
-                            }}>
-                                加入电报群和大神一起聊技术
-                        </a>
+                            <Link href="/zh-cn/test">
+                                <a>加入电报群和大神一起聊技术</a>
+                            </Link>
                         </div>
                         <img src="/imgs/toggle-collapse.png" className="bottom-img" onClick={() => {
 

@@ -21,19 +21,30 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
-        server.get('/zh-cn/*', (req, res) => {
-            let url = req.url;
-            let urls = url.split('/')
-            let currentPage = urls[2];
-            const actualPage = '/' + currentPage;
-            app.render(req, res, actualPage)
-        })
+        // server.get('^/zh-cn||/(*)', (req, res) => {
+        //     let url = req.url;
+        //     let urls = url.split('/')
+        //     let currentPage = urls[2];
+        //     const actualPage = '/' + (currentPage || 'index');
+        //     app.render(req, res, actualPage)
+        // })
 
-        server.get('/en-us/*', (req, res) => {
+        // server.get(/^\/(zh-cn|en-us)\/|''/, (req, res) => {
+        //     let url = req.url;
+        //     let urls = url.split('/')
+        //     let currentPage = urls[2];
+        //     console.log('currentPage:' + currentPage)
+        //     const actualPage = '/' + (currentPage || 'index');
+        //     app.render(req, res, actualPage)
+        // })
+
+
+        server.get(['/zh-cn(/*)?', '/en-us(/*)?'], (req, res) => {
             let url = req.url;
             let urls = url.split('/')
             let currentPage = urls[2];
-            const actualPage = '/' + currentPage;
+            console.log('currentPage:' + currentPage)
+            const actualPage = '/' + (currentPage || 'index');
             app.render(req, res, actualPage)
         })
 

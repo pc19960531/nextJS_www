@@ -90,12 +90,12 @@ class IBOUnion extends Component {
                 <div className="container navigation">
                     <ol className="breadcrumb">
                         <li>
-                            <Link href="/index">
+                            <Link href="/zh-cn/index">
                                 <a style={{ cursor: 'pointor', color: '#08c' }}>首页</a>
                             </Link>
                         </li>
                         <li>
-                            <Link href="/iboUnion">
+                            <Link href="/zh-cn/iboUnion">
                                 <a style={{ cursor: 'pointor', color: '#08c' }}>IBO 应用创新联盟</a>
                             </Link>
 
@@ -301,7 +301,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=155' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-3.png' />
+                                                        <img src='../imgs/ibobg-3.png' />
                                                         <div class='ibo-name'>Connectchain</div>
                                                     </div>
                                                     <div class='name'>Connectchain</div>
@@ -312,7 +312,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=154' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-1.png' />
+                                                        <img src='../imgs/ibobg-1.png' />
                                                         <div class='ibo-name'>佰联广告分享联盟</div>
                                                     </div>
                                                     <div class='name'>佰联广告分享联盟</div>
@@ -322,7 +322,8 @@ class IBOUnion extends Component {
                                         <div class='ibo-panel'>
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&module=forums&controller=topic&id=183' target='_blank'>
-                                                    <div class='ibo-bgimg'><img src='imgs/ibobg-2.png' />
+                                                    <div class='ibo-bgimg'>
+                                                        <img src='../imgs/ibobg-2.png' />
                                                         <div class='ibo-name'>FINX</div></div>
                                                     <div class='name'>FINX</div>
                                                 </a>
@@ -332,7 +333,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=179' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-3.png' />
+                                                        <img src='../imgs/ibobg-3.png' />
                                                         <div class='ibo-name'>叮咚钱包DDPocket</div>
                                                     </div>
                                                     <div class='name'>叮咚钱包DDPocket</div>
@@ -342,7 +343,7 @@ class IBOUnion extends Component {
                                         <div class='ibo-panel'>
                                             <div class='ibo-content'><a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=153' target='_blank'>
                                                 <div class='ibo-bgimg'>
-                                                    <img src='imgs/ibobg-1.png' />
+                                                    <img src='../imgs/ibobg-1.png' />
                                                     <div class='ibo-name'>引力</div>
                                                 </div>
                                                 <div class='name'>引力</div>
@@ -353,7 +354,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=152' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-2.png' />
+                                                        <img src='../imgs/ibobg-2.png' />
                                                         <div class='ibo-name'>FO谜语</div>
                                                     </div>
                                                     <div class='name'>FO谜语</div>
@@ -364,7 +365,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=176' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-3.png' />
+                                                        <img src='../imgs/ibobg-3.png' />
                                                         <div class='ibo-name'>Onedex</div>
                                                     </div>
                                                     <div class='name'>Onedex</div>
@@ -375,7 +376,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=175' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-1.png' />
+                                                        <img src='../imgs/ibobg-1.png' />
                                                         <div class='ibo-name'>加密邮件系统</div>
                                                     </div>
                                                     <div class='name'>加密邮件系统</div>
@@ -386,7 +387,7 @@ class IBOUnion extends Component {
                                             <div class='ibo-content'>
                                                 <a href='http://forum.fo/index.php?app=forums&amp;module=forums&amp;controller=topic&amp;id=181' target='_blank'>
                                                     <div class='ibo-bgimg'>
-                                                        <img src='imgs/ibobg-2.png' />
+                                                        <img src='../imgs/ibobg-2.png' />
                                                         <div class='ibo-name'>QOBIT</div>
                                                     </div>
                                                     <div class='name'>QOBIT</div>

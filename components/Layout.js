@@ -10,7 +10,7 @@ export default function layout(Component, isIndex) {
         static getInitialProps({ req }) {
             const agent = userAgent(req)
             let path = req.url;
-            let language = path.indexOf('zh-cn') !== -1 ? zh_cn : en_us;
+            let language = path.indexOf('en-us') === -1 ? zh_cn : en_us;
             let isNews = path.indexOf('newsDetail') !== -1 ? true : false;
             return { language, agent, isNews }
         }

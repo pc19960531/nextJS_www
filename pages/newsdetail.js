@@ -14,7 +14,7 @@ class Newdetail extends Component {
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.router.query.id !== this.props.router.query.id) {
-            post('/1.0/app/web/details', { lang: 'zh-cn', id: nextProps.router.query.id }).then((newsdtails) => {
+            post('/1.0/app/web/details', { lang: this.props.language.Lang, id: nextProps.router.query.id }).then((newsdtails) => {
                 this.setState({
                     details: newsdtails.details,
                     recommends: newsdtails.recommends
@@ -27,7 +27,7 @@ class Newdetail extends Component {
     }
     componentDidMount() {
         let id = this.props.router.query.id;
-        post('/1.0/app/web/details', { lang: 'zh-cn', id }).then((newsdtails) => {
+        post('/1.0/app/web/details', { lang: this.props.language.Lang, id }).then((newsdtails) => {
             this.setState({
                 details: newsdtails.details,
                 recommends: newsdtails.recommends

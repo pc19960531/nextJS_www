@@ -37,7 +37,7 @@ class News extends React.Component {
                                         (
                                             <div className="new-item">
                                                 <h4>
-                                                    <Link href={`/newsdetail?id=${ele.id}`}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`}>
                                                         <a>
                                                             {ele.title}
                                                         </a>
@@ -49,22 +49,25 @@ class News extends React.Component {
                                     )
                                 }
                             </div>
-                            <div className="col-lg-3 col-md-3 news-rec-container">
-                                <h5>新闻推荐</h5>
-                                <div className="rec-wrap">
-                                    <ul className="rec-list">
-                                        {
-                                            recommendList.length > 0 && recommendList.map((ele, index) => (
-                                                <Link href={`/newsdetail?id=${ele.id}`} key={index}>
-                                                    <a className="rec-item">
-                                                        {ele.title}
-                                                    </a>
-                                                </Link>
-                                            ))
-                                        }
-                                    </ul>
+                            {
+                                language.Lang === 'zh-cn' &&
+                                <div className="col-lg-3 col-md-3 news-rec-container">
+                                    <h5>新闻推荐</h5>
+                                    <div className="rec-wrap">
+                                        <ul className="rec-list">
+                                            {
+                                                recommendList.length > 0 && recommendList.map((ele, index) => (
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`} key={index}>
+                                                        <a className="rec-item">
+                                                            {ele.title}
+                                                        </a>
+                                                    </Link>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
