@@ -69,6 +69,9 @@ class FAQ extends Component {
                                                 <div className="card-header" role="tab" id="headingOne">
                                                     <h4 className="card-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" onClick={() => {
+                                                            this.setState({
+                                                                qaList: [],
+                                                            })
                                                             post('/1.0/app/web/faq', { lang: 'zh-cn', id: ele.id }).then((res) => {
                                                                 this.setState({
                                                                     classify: res.classify,
