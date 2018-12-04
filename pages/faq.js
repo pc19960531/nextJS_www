@@ -89,26 +89,29 @@ class FAQ extends Component {
                                     }
                                 </div>
                             </div>
-                            <div className="col-lg-10">
-                                <div id="accordion">
-                                    {
-                                        qaList.length > 0 && qaList.map((ele, index) => (
-                                            <div className="faq" key={index}>
-                                                <div className="faq-header" id={`heading${index}`}>
-                                                    <h2 className="h2 collapsed" data-toggle="collapse" data-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`}>
-                                                        {ele.question}
-                                                    </h2>
-                                                </div>
-                                                <div id={`collapse${index}`} className="collapse" aria-labelledby={`heading${index}`} data-parent="#accordion">
-                                                    <div className="faq-body" dangerouslySetInnerHTML={{ __html: ele.answer }} >
+                            {
+                                qaList.length > 0 &&
+                                <div className="col-lg-10">
+                                    <div id="accordion">
+                                        {
+                                            qaList.map((ele, index) => (
+                                                <div className="faq" key={index}>
+                                                    <div className="faq-header" id={`heading${index}`}>
+                                                        <h2 className="h2 collapsed" data-toggle="collapse" data-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`}>
+                                                            {ele.question}
+                                                        </h2>
+                                                    </div>
+                                                    <div id={`collapse${index}`} className="collapse" aria-labelledby={`heading${index}`} data-parent="#accordion">
+                                                        <div className="faq-body" dangerouslySetInnerHTML={{ __html: ele.answer }} >
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        )
-                                        )
-                                    }
+                                            )
+                                            )
+                                        }
+                                    </div>
                                 </div>
-                            </div>
+                            }
                         </div>
 
                     </div>
