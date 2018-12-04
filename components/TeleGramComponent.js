@@ -58,7 +58,7 @@ class TeleGramComponent extends React.Component {
                         nextMessages = res.data.messages
                         that.setState({
                             loading: false,
-                            messages: that.transferMessage(nextMessages).concat(that.messages),
+                            messages: that.transferMessage(nextMessages).concat(that.state.messages),
                             currentPage: currentPage + 1
                         })
                     })
