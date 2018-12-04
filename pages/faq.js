@@ -90,7 +90,7 @@ class FAQ extends Component {
                                 </div>
                             </div>
                             {
-                                qaList.length > 0 &&
+                                qaList && qaList.length > 0 &&
                                 <div className="col-lg-10">
                                     <div id="accordion">
                                         {
