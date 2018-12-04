@@ -4,12 +4,20 @@ import PropTypes from 'prop-types';
 import DiscVideoComponent from './DiscVideoComponent'
 class DiscComponent extends React.Component {
 
-    choose = [
+    zh_choose = [
         `${this.context.language.Main_Node}`,
         `${this.context.language.DappDeveloper}`,
         `${this.context.language.Com_Contributor}`,
         `${this.context.language.Volunteer}`
     ]
+
+    en_choose = [
+        `&nbsp;`,
+        `${this.context.language.Main_Node}`,
+        `${this.context.language.Volunteer}`,
+        `&nbsp;`,
+    ]
+
 
     main_node = [
         {
@@ -132,18 +140,14 @@ class DiscComponent extends React.Component {
     render() {
         const { discList, currentChoose } = this.state;
         const language = this.context.language;
-        let zhMap = new Map([
+        let chooseMap = new Map([
             [`${language.Main_Node}`, this.main_node],
             [`${language.DappDeveloper}`, this.dapp_developer],
             [`${language.Com_Contributor}`, this.doc_contributor],
             [`${language.Volunteer}`, this.volunteer],
         ])
 
-        let enMap = new Map([
-            [`${language.Main_Node}`, this.main_node],
-            [`${language.Volunteer}`, this.volunteer],
-        ])
-        let chooseMap = language.Lang === "zh-cn" ? zhMap : enMap;
+        let choose = language.Lang === 'zh-cn' ? this.zh_choose : this.en_choose;
         return (
             <div>
                 <div className="index-disc">
@@ -181,17 +185,24 @@ class DiscComponent extends React.Component {
                         <div className="disc-choose">
                             <ul>
                                 {
-                                    this.choose.map((name, index) => (
-                                        <li key={index}>
-                                            <div
-                                                className={`chooseclick2 chooseclick main ${name === currentChoose ? 'active' : ''}`}
-                                                onClick={() => {
-                                                    this.setState({ currentChoose: name })
-                                                }}
-                                            >{name}
-                                            </div>
-                                        </li>
-                                    ))
+                                    choose.map((name, index) =>
+                                        name !== '&nbsp;' ?
+                                            (<li key={index}>
+                                                < div
+                                                    className={`chooseclick2 chooseclick main ${name === currentChoose ? 'active' : ''}`}
+                                                    onClick={() => {
+                                                        this.setState({ currentChoose: name })
+                                                    }}
+                                                >{name}
+                                                </div>
+                                            </li>)
+                                            :
+                                            (<li key={index} style={{ cursor: 'auto' }}>
+                                                <div>
+                                                    &nbsp;
+                                                </div>
+                                            </li>)
+                                    )
                                 }
                             </ul>
                             <div className="clear">
@@ -236,7 +247,7 @@ class DiscComponent extends React.Component {
                         }
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

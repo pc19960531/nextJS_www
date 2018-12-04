@@ -43,7 +43,6 @@ app.prepare()
             let url = req.url;
             let urls = url.split('/')
             let currentPage = urls[2];
-            console.log('currentPage:' + currentPage)
             const actualPage = '/' + (currentPage || 'index');
             app.render(req, res, actualPage)
         })

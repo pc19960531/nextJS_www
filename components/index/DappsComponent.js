@@ -9,11 +9,11 @@ export default ({ language }) => (
                     {language.Dapps}
                 </div>
 
-                <Carousel interval={3000} indicators={false}>
+                <Carousel interval={3000} indicators={false} controls={false}>
                     <Carousel.Item>
                         <div className="row">
                             <div className="dapp">
-                                <a href="http://wallet.fo" target="_blank" className="link">
+                                <a href={`http://wallet.fo/${language.Lang}`} target="_blank" className="link">
                                     <div className="card">
                                         <div className="card-img-top">
                                             <img src="/imgs/dapp1.png" alt="" />

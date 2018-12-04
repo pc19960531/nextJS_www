@@ -42,7 +42,7 @@ class Newdetail extends Component {
         return (
             <div className="doc-container">
                 <div className="inside-container">
-                    <Band id={this.props.router.query.id} title={details.title} lang={language.Lang} />
+                    <Band id={this.props.router.query.id} title={details.title} language={language} />
                     <div className="page-body">
                         <div className="container row">
                             <div className="col-lg-9 col-md-9 news-content-container">
@@ -51,24 +51,28 @@ class Newdetail extends Component {
                                 <div className="news-content" dangerouslySetInnerHTML={{ __html: details.content }} >
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-md-3 news-rec-container">
-                                <h5 id="NewsRec">
-                                    新闻推荐
-                            </h5>
-                                <div className="rec-wrap">
-                                    <ul className="rec-list">
-                                        {
-                                            recommends && recommends.length > 0 && recommends.map((ele, index) => (
-                                                <Link href={`/newsdetail?id=${ele.id}`} key={index}>
-                                                    <a className="rec-item">
-                                                        {ele.title}
-                                                    </a>
-                                                </Link>
-                                            ))
-                                        }
-                                    </ul>
+                            {
+                                language.Lang === 'zh-cn' &&
+                                <div className="col-lg-3 col-md-3 news-rec-container">
+                                    <h5>
+                                        新闻推荐
+                                    </h5>
+                                    <div className="rec-wrap">
+                                        <ul className="rec-list">
+                                            {
+                                                recommends && recommends.length > 0 && recommends.map((ele, index) => (
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`} key={index}>
+                                                        <a className="rec-item">
+                                                            {ele.title}
+                                                        </a>
+                                                    </Link>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            }
+
                         </div>
                     </div>
                 </div>

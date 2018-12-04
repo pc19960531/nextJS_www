@@ -1,27 +1,27 @@
 import Link from 'next/link'
 
-const band = ({ lang, id, title }) => (
+const band = ({ language, id, title }) => (
     <div>
         <div className="band">
             <div className="container">
                 <span className="group">
-                    新闻中心
+                    {language.News_Center}
                 </span>
             </div>
         </div>
         <div className="container">
             <ol className="breadcrumb">
                 <li>
-                    <Link href={`/${lang}/index`}>
+                    <Link href={`/${language.Lang}/index`}>
                         <a style={{ cursor: 'pointor', color: '#08c' }}>
-                            首页
+                            {language.Home}
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href={`/${lang}/news`}>
+                    <Link href={`/${language.Lang}/news`}>
                         <a style={{ cursor: 'pointor', color: '#08c' }}>
-                            新闻中心
+                            {language.News_Center}
                         </a>
                     </Link>
                 </li>

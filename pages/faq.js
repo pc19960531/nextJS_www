@@ -42,12 +42,12 @@ class FAQ extends Component {
                     <div className="container">
                         <ol className="breadcrumb">
                             <li>
-                                <Link href={`/${language.Lang}/index`}>
+                                <Link href={`/zh-cn/index`}>
                                     <a style={{ cursor: 'pointor', color: '#08c' }}>首页</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href={`/${language.Lang}/faq`}>
+                                <Link href={`/zh-cn/faq`}>
                                     <a style={{ cursor: 'pointor', color: '#08c' }}>指南</a>
                                 </Link>
                             </li>

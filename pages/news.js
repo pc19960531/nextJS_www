@@ -28,7 +28,7 @@ class News extends React.Component {
         return (
             <div className="doc-container">
                 <div className="inside-container">
-                    <Band lang={language.Lang} />
+                    <Band language={language} />
                     <div className='page-body'>
                         <div className="container row">
                             <div className="col-lg-9 col-md-9 news-list-container">

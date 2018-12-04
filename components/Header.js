@@ -29,9 +29,12 @@ const Header = ({ isIndex = false, language }) => (
                         <NavDropdown.Item href={`https://wallet.fo/${language.Lang}`} target="_blank">
                             {language.Wallet}
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/5b8b51baaba908441dbbfc81.html" target="_blank">
+                        <NavDropdown.Item href={`/${language.Lang}/newsdetail/5b8b51baaba908441dbbfc81`} target="_blank">
                             {language.FO_Exchange}
                         </NavDropdown.Item>
+
+
+
                     </NavDropdown>
                     <Link href={`/${language.Lang}/news`}>
                         <a className="nav-link" target="_blank">{language.News}</a>
