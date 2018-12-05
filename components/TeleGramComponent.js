@@ -47,9 +47,9 @@ class TeleGramComponent extends React.Component {
 
     scrollDid = () => {
         let e = this.messageswrap
-        const { loading, pageCount, currentPage } = this.state;
         let that = this;
         $('.messages').scroll(function () {
+            const { loading, pageCount, currentPage } = that.state;
             if (e.scrollTop === 0 && currentPage <= pageCount && !loading) {
                 let currentHeight = e.scrollHeight
                 let nextMessages = []

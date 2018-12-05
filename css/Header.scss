@@ -786,7 +786,8 @@ nav.navbar {
 
 #responsive-navbar-nav .navbar-nav a {
     font-size: 18px;
-    font-weight: 800;
+    // color: hsla(0,0%,100%,.5);
+    // font-weight: 800;
 }
 
 .dropdown-item{
@@ -839,3 +840,12 @@ nav.navbar {
       width: 100%;
     }
   }
+
+.language_span{
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.navbar-nav .dropdown-menu{
+  left: -30px;
+}

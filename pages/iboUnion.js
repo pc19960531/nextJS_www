@@ -8,7 +8,7 @@ import post from '../utils/request'
 
 class IBOUnion extends Component {
 
-    state = {
+    initstate = {
         projectName: "",//项目名称
         projectSummary: "",//项目概况
         companyName: "",//公司名称
@@ -16,15 +16,19 @@ class IBOUnion extends Component {
         phone: "",//电话
         email: "",//邮箱
         country: "",//国家
-        province: "",//省编码
-        province_name: "",//省名称
-        city: "",//市
-        city_name: "",//市名称
-        area: "",//区
-        area_name: "",//区名称
+        province: "110000",//省编码
+        province_name: "北京市",//省名称
+        city: "110100",//市
+        city_name: "市辖区",//市名称
+        area: "110101",//区
+        area_name: "东城区",//区名称
         detail: "",//详细地址
         postalCode: "",//邮编
         page: 1
+    }
+
+    state = {
+        ...this.initstate
     }
 
     onChangeValue = (e) => {
@@ -564,7 +568,6 @@ class IBOUnion extends Component {
                                                     <div className="col-4">
                                                         <select
                                                             onChange={(e) => {
-                                                                console.log("e:" + e.target.name);
                                                                 this.setState({
                                                                     province: e.target.value,
                                                                     province_name: e.target.name,
@@ -634,38 +637,12 @@ class IBOUnion extends Component {
                                             ).then(() => {
                                                 alert('提交成功')
                                                 this.setState({
-                                                    projectName: "",//项目名称
-                                                    projectSummary: "",//项目概况
-                                                    companyName: "",//公司名称
-                                                    contact: "",//联系人
-                                                    phone: "",//电话
-                                                    email: "",//邮箱
-                                                    province: "",//省编码
-                                                    province_name: "",//省名称
-                                                    city: "",//市
-                                                    city_name: "",//市名称
-                                                    area: "",//区
-                                                    area_name: "",//区名称
-                                                    detail: "",//详细地址
-                                                    postalCode: "",//邮编
+                                                    ...this.initstate
                                                 })
                                             }).catch(() => {
                                                 alert("系统异常，请稍后再试！")
                                                 this.setState({
-                                                    projectName: "",//项目名称
-                                                    projectSummary: "",//项目概况
-                                                    companyName: "",//公司名称
-                                                    contact: "",//联系人
-                                                    phone: "",//电话
-                                                    email: "",//邮箱
-                                                    province: "",//省编码
-                                                    province_name: "",//省名称
-                                                    city: "",//市
-                                                    city_name: "",//市名称
-                                                    area: "",//区
-                                                    area_name: "",//区名称
-                                                    detail: "",//详细地址
-                                                    postalCode: "",//邮编
+                                                    ...this.initstate
                                                 })
                                             })
                                         }}>
