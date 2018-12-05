@@ -83,4 +83,4 @@ class Newdetail extends Component {
 
 const detail = withRouter(Newdetail)
 
-export default layout(detail, false)
+export default layout(detail)
