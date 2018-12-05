@@ -11,7 +11,7 @@ export default function layout(Component, isIndex) {
             const agent = userAgent(req)
             let path = req.url;
             let language = path.indexOf('en-us') === -1 ? zh_cn : en_us;
-            let isNews = path.indexOf('newsDetail') !== -1 ? true : false;
+            let isNews = path.indexOf('newsdetail') !== -1 ? true : false;
             return { language, agent, isNews }
         }
         render() {

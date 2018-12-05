@@ -25,7 +25,7 @@ export default class extends Component {
                 {
                     isShow &&
                     (<Modal
-                        width={'600px'}
+                        width={'800px'}
                         closeClick={() => {
                             this.setState({
                                 isShow: false
