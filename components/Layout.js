@@ -15,14 +15,13 @@ export default function layout(Component, isIndex) {
             return { language, agent, isNews }
         }
         render() {
-            return (
-                <div>
-                    <Head isNews={this.props.isNews} />
-                    <Header isIndex={isIndex} language={this.props.language} />
-                    <Component agent={this.props.agent} language={this.props.language} />
-                    <Footer language={this.props.language} />
-                </div>
-            )
+            let { isNews, language, agent } = this.props;
+            return (<div>
+                <Head isNews={isNews} />
+                <Header isIndex={isIndex} language={language} />
+                <Component agent={agent} language={language} />
+                <Footer language={language} />
+            </div>)
         }
     }
 }
