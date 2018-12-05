@@ -13,7 +13,7 @@ class VideoComponent extends Component {
                     <div className="video-content">
                         <video className="video-play" poster="../imgs/video_preview.jpg" playsInline autoPlay muted loop
                             id="pc-video">
-                            <source src="http://pg9omf3zm.bkt.clouddn.com/background101002.mp4" type="video/mp4" />
+                            <source src="/video/background.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <div className="index-advance">

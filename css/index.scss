@@ -2783,6 +2783,10 @@ footer .index-footer .social-media {
   background-repeat: no-repeat;
   background-size: cover;
   height: 380px;
+  @media (max-width: 768px){
+    padding: 0;
+    height: 124px;
+  }
 }
 
 .index-discvideo .play-btn{
@@ -2792,6 +2796,9 @@ footer .index-footer .social-media {
   transform: translate(-50%,-50%);
   width: 80px;
   cursor: pointer;
+  @media (max-width: 768px){
+    width: 60px;
+  }
 }
 
 

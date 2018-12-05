@@ -11,6 +11,7 @@ export default class extends Component {
 
     render() {
         const { isShow } = this.state;
+        const language = this.props.language
         return (
             <div className="index-discvideo">
                 <div>
@@ -24,7 +25,7 @@ export default class extends Component {
                 {
                     isShow &&
                     (<Modal
-                        width={'800px'}
+                        width={'600px'}
                         closeClick={() => {
                             this.setState({
                                 isShow: false
@@ -33,14 +34,14 @@ export default class extends Component {
                     >
                         <div className="video-content">
                             <video
-                                poster="../imgs/video_preview.jpg"
+                                poster="../imgs/video_pre.png"
                                 playsInline
                                 autoPlay
                                 muted
                                 Floop
                                 style={{ width: "100%" }}
                             >
-                                <source src="http://pg9omf3zm.bkt.clouddn.com/background101002.mp4" type="video/mp4" />
+                                <source src={`/video/blockchain_${language.Lang === 'zh-cn' ? 'cn' : 'us'}.mp4`} type="video/mp4" />
                             </video>
                         </div>
                     </Modal>)

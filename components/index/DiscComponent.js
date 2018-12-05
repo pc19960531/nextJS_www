@@ -176,7 +176,7 @@ class DiscComponent extends React.Component {
                         </div>
                     </div>
                 </div>
-                <DiscVideoComponent />
+                <DiscVideoComponent language={language} />
                 <div className="disc-bottom">
                     <div className="disc-bottom-wrap">
                         <div className="disc-top-title" id="Diversified">

@@ -1,9 +1,5 @@
 import '../css/modal.scss'
 
-const contentInitStyle = {
-    width: '500px',
-    'min-height': '200px'
-}
 
 // width : 标识modal框的宽度（初始化宽度500px）
 // closeClick : 点击关闭的触发事件
@@ -11,10 +7,10 @@ const contentInitStyle = {
 const modal = (props) => (
     <div className="_modal">
         <div className="wrap">
-            <div className="content" style={{ ...contentInitStyle, width: props.width }}>
+            <div className="content" style={{width: props.width }}>
                 <div className="show">
                     <div className="close_btn" onClick={() => {
-                        props.closeClick()
+                        props.closeClick();
                     }}>
                         <i>
                             <svg viewBox="64 64 896 896" class="" data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true">
