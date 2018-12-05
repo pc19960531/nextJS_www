@@ -14,14 +14,14 @@ class Newdetail extends Component {
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.router.query.id !== this.props.router.query.id) {
-            post('/1.0/app/web/details', { lang: this.props.language.Lang, id: nextProps.router.query.id }).then((newsdtails) => {
+            post('/1.0/app/web/details', { lang: this.props.language.Lang, id: nextProps.router.query.id }).then((newsdetails) => {
                 this.setState({
-                    details: newsdtails.details,
-                    recommends: newsdtails.recommends
+                    details: newsdetails.details,
+                    recommends: newsdetails.recommends
                 })
             }).catch(() => {
-                alert("系统异常")
-            })
+                    alert("系统异常")
+                })
         }
         // console.log(JSON.stringify(nextProps));
     }
@@ -83,4 +83,4 @@ class Newdetail extends Component {
 
 const detail = withRouter(Newdetail)
 
-export default layout(detail)
+export default layout(detail, false)
