@@ -51,6 +51,21 @@ export default function layout(Component, isIndex) {
 
         }
 
+        componentDidMount() {
+            let opt = {
+                method: "POST",
+                body: JSON.stringify({ lang: language.Lang, id }),
+                headers: {
+                    Accept: 'application/json',
+                    "Content-Type": "application/json",
+                }
+                // timeout: 1000
+            }
+            const res = await fetch('/1.0/app/web/details', opt)
+            console.log('componentDidMount')
+            console.log(`Show data fetched. Count: ${res.json()}`);
+        }
+
         render() {
             let { language, agent, title } = this.props;
             return (<div>
