@@ -73,9 +73,9 @@ export default function layout(Component, isIndex) {
         //     }
         // }
 
-        componentDidMount() {
+        async componentDidMount() {
             let title = '';
-            const res = axios(
+            const res = await axios(
                 {
                     method: "POST",
                     url: '/1.0/app/web/details',

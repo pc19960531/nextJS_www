@@ -21,6 +21,10 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
+        server.get('/1.0/app/web/*', (req, res) => {
+           console.log('得到请求')
+        })
+
         // server.get('^/zh-cn||/(*)', (req, res) => {
         //     let url = req.url;
         //     let urls = url.split('/')
