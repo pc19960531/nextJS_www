@@ -13,7 +13,7 @@ export default ({ language }) => (
                                     <ul>
                                         <li>
                                             <a href="javascript:void(0)" className="connectus">
-                                                <img src="../imgs/wx-qr.jpeg" className="wxqrimg" />
+                                                <img src="/imgs/wx-qr.jpeg" className="wxqrimg" />
                                                 <span id="ContactUs_f">{language.ContactUs}</span>
                                             </a>
                                         </li>
