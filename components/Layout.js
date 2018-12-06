@@ -42,7 +42,7 @@ export default function layout(Component, isIndex) {
                     // }
                     return { language, agent, title }
                 } catch (e) {
-                    console.log('catch')
+                    console.log('e:' + JSON.stringify(e))
                     return { language, agent }
                 }
             } else {
