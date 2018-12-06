@@ -51,7 +51,7 @@ export default function layout(Component, isIndex) {
 
         }
 
-        componentDidMount() {
+        async componentDidMount() {
             let opt = {
                 method: "POST",
                 body: JSON.stringify({ lang: 'zh-cn', id: '5bd97b86f9463f45327f5345' }),
@@ -63,7 +63,7 @@ export default function layout(Component, isIndex) {
             }
             const res = await fetch('/1.0/app/web/details', opt)
             console.log('componentDidMount')
-            console.log(`Show data fetched. Count: ${res.json()}`);
+            console.log(`Show data fetched. Count:`+ JSON.stringify(res));
         }
 
         render() {
