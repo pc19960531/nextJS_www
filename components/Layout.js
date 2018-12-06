@@ -84,10 +84,11 @@ export default function layout(Component, isIndex) {
                     // timeout: 1000
                 }
             )
+            console.log('res:' + JSON.stringify(res))
+            console.log('res.data:' + JSON.stringify(res.data))
             if (res.data) {
                 title = res.data.details.title;
             }
-            console.log('componentDidMount')
             console.log('title:' + title)
         }
         render() {
