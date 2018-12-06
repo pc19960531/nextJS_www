@@ -15,13 +15,13 @@ export default function layout(Component, isIndex) {
 
         static async getInitialProps({ req }) {
             const agent = userAgent(req)
-            console.log('req:' + JSON.stringify(req))
             let path = req.url;
             let language = path.indexOf('en-us') === -1 ? zh_cn : en_us;
             let isNews = path.indexOf('newsdetail') !== -1 ? true : false;
             if (isNews) {
                 let title = '';
                 let alias = path.split('/')[3];
+                let origin = req.origin;
                 try {
 
                     let opt = {
@@ -34,7 +34,7 @@ export default function layout(Component, isIndex) {
                         credentials: 'same-origin',
                         // timeout: 1000
                     }
-                    const res = await fetch('/1.0/app/web/details', opt)
+                    const res = await fetch(`${origin}/1.0/app/web/details`, opt)
                     const data = await res.json();
                     if (data) {
                         title = data.details.title;
