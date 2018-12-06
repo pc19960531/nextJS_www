@@ -21,28 +21,6 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
-        server.get('*/1.0/app/web/*', (req, res) => {
-            console.log('得到请求')
-        })
-
-        // server.get('^/zh-cn||/(*)', (req, res) => {
-        //     let url = req.url;
-        //     let urls = url.split('/')
-        //     let currentPage = urls[2];
-        //     const actualPage = '/' + (currentPage || 'index');
-        //     app.render(req, res, actualPage)
-        // })
-
-        // server.get(/^\/(zh-cn|en-us)\/|''/, (req, res) => {
-        //     let url = req.url;
-        //     let urls = url.split('/')
-        //     let currentPage = urls[2];
-        //     console.log('currentPage:' + currentPage)
-        //     const actualPage = '/' + (currentPage || 'index');
-        //     app.render(req, res, actualPage)
-        // })
-
-
         server.get(['/zh-cn(/*)?', '/en-us(/*)?'], (req, res) => {
             let url = req.url;
             let urls = url.split('/')
@@ -50,6 +28,11 @@ app.prepare()
             const actualPage = '/' + (currentPage || 'index');
             app.render(req, res, actualPage)
         })
+
+        server.get('*/1.0/*', (req, res) => {
+            console.log('adasd')
+        })
+
 
         server.get('*/imgs/*', (req, res) => {
             res.sendFile(__dirname + req.url);

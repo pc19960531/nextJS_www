@@ -49,7 +49,6 @@ export default function layout(Component, isIndex) {
 
         render() {
             let { language, agent, title } = this.props;
-            console.log('render_title:' + title)
             return (<div>
                 <Head title={title} />
                 <Header isIndex={isIndex} language={language} />
