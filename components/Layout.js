@@ -29,13 +29,14 @@ export default function layout(Component, isIndex) {
                         method: "POST",
                         body: JSON.stringify({ lang: language.Lang, id }),
                         headers: {
+                            Accept: 'application/json, text/plain, */*',
                             "Content-Type": "application/json",
                         }
                         // timeout: 1000
                     }
                     const res = await fetch('/1.0/app/web/details', opt)
                     console.log('try')
-                    console.log(`Show data fetched. Count: ${res.json()}`);
+                    console.log(`Show data fetched. Count:` + JSON.stringify(res));
                     // if (res.data) {
                     //     title = res.data.details.title;
                     // }
@@ -55,13 +56,14 @@ export default function layout(Component, isIndex) {
                 method: "POST",
                 body: JSON.stringify({ lang: 'zh-cn', id: '5bd97b86f9463f45327f5345' }),
                 headers: {
+                    Accept: 'application/json, text/plain, */*',
                     "Content-Type": "application/json",
                 }
                 // timeout: 1000
             }
             const res = await fetch('/1.0/app/web/details', opt)
             console.log('componentDidMount')
-            console.log(`Show data fetched. Count:`+ JSON.stringify(res));
+            console.log(`Show data fetched. Count:` + JSON.stringify(res));
         }
 
         render() {
