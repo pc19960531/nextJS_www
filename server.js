@@ -29,8 +29,9 @@ app.prepare()
             app.render(req, res, actualPage)
         })
 
-        server.get('*/1.0/*', (req, res) => {
-            console.log('adasd')
+        server.get('/1.0/app/web/details', (req, res) => {
+            console.log('url:' + JSON.stringify(req.url))
+            console.log('param:' + JSON.stringify(req.body))
         })
 
 
