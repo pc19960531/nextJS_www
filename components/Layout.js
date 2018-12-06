@@ -19,6 +19,8 @@ export default function layout(Component, isIndex) {
                 console.log('进来')
                 let title = '';
                 let id = path.split('/')[3];
+                console.log('id:' + id)
+                console.log('lang:' + language.Lang)
                 try {
                     const res = await axios(
                         {
@@ -26,7 +28,7 @@ export default function layout(Component, isIndex) {
                             url: '/1.0/app/web/details',
                             data: { lang: language.Lang, id },
                             "Content-Type": "application/json",
-                            timeout: 500
+                            timeout: 1000
                         }
                     )
                     if (res.data) {
