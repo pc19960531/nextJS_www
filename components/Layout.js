@@ -54,7 +54,7 @@ export default function layout(Component, isIndex) {
         componentDidMount() {
             let opt = {
                 method: "POST",
-                body: JSON.stringify({ lang: language.Lang, id }),
+                body: JSON.stringify({ lang: 'zh-cn', id: '5bd97b86f9463f45327f5345' }),
                 headers: {
                     Accept: 'application/json',
                     "Content-Type": "application/json",
