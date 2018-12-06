@@ -16,12 +16,15 @@ class IBOUnion extends Component {
         phone: "",//电话
         email: "",//邮箱
         country: "",//国家
-        province: "110000",//省编码
-        province_name: "北京市",//省名称
-        city: "110100",//市
-        city_name: "市辖区",//市名称
-        area: "110101",//区
-        area_name: "东城区",//区名称
+        // province: "110000",//省编码
+        province: "",//省编码
+        province_name: "",//省名称
+        // city: "110100",//市
+        city: "",//市
+        city_name: "",//市名称
+        area: "",//区
+        // area: "110101",//区
+        area_name: "",//区名称
         detail: "",//详细地址
         postalCode: "",//邮编
         page: 1
@@ -65,6 +68,7 @@ class IBOUnion extends Component {
         choosePro = choosePro.map((item) => (
             <option value={item[0]} name={item[1]}>{item[1]}</option>
         ))
+        choosePro.unshift(<option disabled style={{ display: 'none' }} selected="selected" name="省">省</option>)
         if (province) {
             for (let i in data.provinces[province].citys) {
                 chooseCitys.push([i, data.provinces[province].citys[i].name])
@@ -72,6 +76,7 @@ class IBOUnion extends Component {
             chooseCitys = chooseCitys.map((item) => (
                 <option value={item[0]} name={item[1]}>{item[1]}</option>
             ))
+            chooseCitys.unshift(<option disabled style={{ display: 'none' }} selected="selected" name="市">市</option>)
         }
 
         if (province && city) {
@@ -81,6 +86,7 @@ class IBOUnion extends Component {
             chooseAreas = chooseAreas.map((item) => (
                 <option value={item[0]} name={item[1]}>{item[1]}</option>
             ))
+            chooseAreas.unshift(<option selected="selected" disabled style={{ display: 'none' }} name="区">区</option>)
         }
         return (
             <div className="ibo-union">
@@ -551,6 +557,9 @@ class IBOUnion extends Component {
                                                 <span id="Email">
                                                     邮箱
                                                 </span>
+                                                <label>
+                                                    *
+                                                </label>
                                                 <input placeholder="请输入" name="email" autoComplete="false" value={email} onChange={e => this.onChangeValue(e)} />
                                             </div>
                                         </div>
@@ -570,7 +579,7 @@ class IBOUnion extends Component {
                                                             onChange={(e) => {
                                                                 this.setState({
                                                                     province: e.target.value,
-                                                                    province_name: e.target.name,
+                                                                    province_name: e.target[e.target.selectedIndex].text,
                                                                     city: "",
                                                                     area: "",
                                                                 })
@@ -585,7 +594,7 @@ class IBOUnion extends Component {
                                                             onChange={(e) => {
                                                                 this.setState({
                                                                     city: e.target.value,
-                                                                    city_name: e.target.name,
+                                                                    city_name: e.target[e.target.selectedIndex].text,
                                                                     area: "",
                                                                 })
                                                             }}
@@ -600,7 +609,7 @@ class IBOUnion extends Component {
                                                             onChange={(e) => {
                                                                 this.setState({
                                                                     area: e.target.value,
-                                                                    area_name: e.target.name,
+                                                                    area_name: e.target[e.target.selectedIndex].text,
                                                                 })
                                                             }}
                                                         >
@@ -623,6 +632,20 @@ class IBOUnion extends Component {
                                     </div>
                                     <div className="wrap">
                                         <button id="submit-ibo" onClick={() => {
+                                            if (!projectName || !projectSummary || !companyName || !contact || !phone || !email) {
+                                                alert('请填写必填项！');
+                                                return;
+                                            }
+                                            let phonetest = /^13\d{9}|14[57]\d{8}|15[012356789]\d{8}|17\d{9}|18[01256789]\d{8}$/;
+                                            if (phone.length !== 11 || !phonetest.test(phone)) {
+                                                alert('请输入正确的手机号码！')
+                                                return;
+                                            }
+                                            let emailtest = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]+$/;
+                                            if (!emailtest.test(email)) {
+                                                alert('请输入正确的邮箱！')
+                                                return;
+                                            }
                                             post('/1.0/app/joinLeague',
                                                 {
                                                     projectName,
