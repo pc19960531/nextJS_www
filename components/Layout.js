@@ -41,56 +41,12 @@ export default function layout(Component, isIndex) {
                     console.log('catch')
                     return { language, agent }
                 }
-                // finally {
-                //     console.log('finally')
-                //     return { language, agent }
-                // }
             } else {
                 return { language, agent }
             }
 
         }
 
-        // static getNewsTitle = async (language, id) => {
-        //     let title = ''
-        //     try {
-        //         const res = await axios(
-        //             {
-        //                 method: "POST",
-        //                 url: '/1.0/app/web/details',
-        //                 data: { lang: language.Lang, id },
-        //                 "Content-Type": "application/json",
-        //                 timeout: 500
-        //             }
-        //         )
-        //         if (res.data) {
-        //             title = res.data.details.title;
-        //         }
-        //         console.log('title:' + title);
-        //         return title
-        //     } catch (err) {
-
-        //     }
-        // }
-
-        async componentDidMount() {
-            let title = '';
-            const res = await axios(
-                {
-                    method: "POST",
-                    url: '/1.0/app/web/details',
-                    data: { lang: 'zh-cn', id: '5bd97b86f9463f45327f5345' },
-                    "Content-Type": "application/json",
-                    // timeout: 1000
-                }
-            )
-            console.log('res:' + JSON.stringify(res))
-            console.log('res.data:' + JSON.stringify(res.data))
-            if (res.data) {
-                title = res.data.details.title;
-            }
-            console.log('title:' + title)
-        }
         render() {
             let { language, agent, title } = this.props;
             console.log('render_title:' + title)
