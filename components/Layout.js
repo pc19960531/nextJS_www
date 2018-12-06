@@ -25,21 +25,21 @@ export default function layout(Component, isIndex) {
                 console.log('id:' + id)
                 console.log('lang:' + language.Lang)
                 try {
-                    console.log('try')
                     let opt = {
                         method: "POST",
                         body: JSON.stringify({ lang: language.Lang, id }),
                         headers: {
+                            Accept: 'application/json',
                             "Content-Type": "application/json",
                         }
                         // timeout: 1000
                     }
                     const res = await fetch('/1.0/app/web/details', opt)
+                    console.log('try')
                     console.log(`Show data fetched. Count: ${res.json()}`);
                     // if (res.data) {
                     //     title = res.data.details.title;
                     // }
-
                     return { language, agent, title }
                 } catch (e) {
                     console.log('catch')
