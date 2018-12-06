@@ -21,10 +21,12 @@ export default function layout(Component, isIndex) {
             if (isNews) {
                 let title = '';
                 let alias = path.split('/')[3];
-                let host = req.headers['host'];
-                console.log('header:' + JSON.stringify(req.headers))
-                let referer = req.headers['referer'];
-                let protocol = (referer && referer.split('//')[0]) || 'https:';
+                // let host = req.headers['host'];
+                // console.log('header:' + JSON.stringify(req.headers))
+                // let referer = req.headers['referer'];
+                // let pro = referer ? referer.split('//')[0] : '';
+                // let protocol = pro ? pro : 'https:';
+                // console.log('http:' + `${protocol}//${host}/1.0/app/web/details`)
                 try {
 
                     let opt = {
@@ -37,7 +39,7 @@ export default function layout(Component, isIndex) {
                         credentials: 'same-origin',
                         // timeout: 1000
                     }
-                    const res = await fetch(`${protocol}//${host}/1.0/app/web/details`, opt)
+                    const res = await fetch(`https://guspc.com/1.0/app/web/details`, opt)
                     const data = await res.json();
                     if (data) {
                         title = data.details.title;
