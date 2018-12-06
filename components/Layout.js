@@ -30,7 +30,7 @@ export default function layout(Component, isIndex) {
                         body: JSON.stringify({ lang: language.Lang, alias }),
                         headers: {
                             Accept: 'application/json, text/plain, */*',
-                            "Content-Type": "application/json",
+                            "Content-Type": "application/json;charset=UTF-8",
                         }
                         // timeout: 1000
                     }
@@ -57,7 +57,7 @@ export default function layout(Component, isIndex) {
                 body: JSON.stringify({ lang: 'zh-cn', alias: 'zhu-wang-token-he-yue-jin-ri-geng-xin' }),
                 headers: {
                     Accept: 'application/json, text/plain, */*',
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json;charset=UTF-8",
                 }
                 // timeout: 1000
             }
