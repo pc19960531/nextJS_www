@@ -28,7 +28,7 @@ export default function layout(Component, isIndex) {
                             url: '/1.0/app/web/details',
                             data: { lang: language.Lang, id },
                             "Content-Type": "application/json",
-                            timeout: 1000
+                            // timeout: 1000
                         }
                     )
                     if (res.data) {
@@ -40,10 +40,11 @@ export default function layout(Component, isIndex) {
                 } catch (e) {
                     console.log('catch')
                     return { language, agent }
-                } finally {
-                    console.log('finally')
-                    return { language, agent }
-                }
+                } 
+                // finally {
+                //     console.log('finally')
+                //     return { language, agent }
+                // }
             } else {
                 return { language, agent }
             }
