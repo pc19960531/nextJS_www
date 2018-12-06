@@ -15,6 +15,7 @@ export default function layout(Component, isIndex) {
 
         static async getInitialProps({ req }) {
             const agent = userAgent(req)
+            console.log('req:' + req)
             let path = req.url;
             let language = path.indexOf('en-us') === -1 ? zh_cn : en_us;
             let isNews = path.indexOf('newsdetail') !== -1 ? true : false;
@@ -22,6 +23,7 @@ export default function layout(Component, isIndex) {
                 let title = '';
                 let alias = path.split('/')[3];
                 try {
+
                     let opt = {
                         method: "POST",
                         body: JSON.stringify({ lang: language.Lang, alias }),
