@@ -32,7 +32,7 @@ export default function layout(Component, isIndex) {
                         credentials: 'same-origin',
                         // timeout: 1000
                     }
-                    const res = await fetch('/1.0/app/web/details', opt)
+                    const res = await fetch('https://guspc.com/1.0/app/web/details', opt)
                     const data = await res.json();
                     if (data) {
                         title = data.details.title;
