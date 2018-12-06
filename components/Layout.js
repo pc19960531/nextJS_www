@@ -25,24 +25,21 @@ export default function layout(Component, isIndex) {
                 console.log('id:' + id)
                 console.log('lang:' + language.Lang)
                 try {
-                    // let opt = {
-                    //     method: "POST",
-                    //     // body: { lang: language.Lang, id },
-                    //     headers: {
-                    //         "Content-Type": "application/json",
-                    //     }
-                    //     // timeout: 1000
-                    // }
-                    // const res = await fetch('/1.0/app/web/details', opt)
+                    console.log('try')
+                    let opt = {
+                        method: "POST",
+                        body: JSON.stringify({ lang: language.Lang, id }),
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                        // timeout: 1000
+                    }
+                    const res = await fetch('/1.0/app/web/details', opt)
+                    console.log(`Show data fetched. Count: ${res.json()}`);
                     // if (res.data) {
                     //     title = res.data.details.title;
                     // }
 
-                    console.log('try')
-
-                    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-                    const data = await res.json()
-                    console.log(`Show data fetched. Count: ${data.length}`)
                     return { language, agent, title }
                 } catch (e) {
                     console.log('catch')
