@@ -22,8 +22,9 @@ export default function layout(Component, isIndex) {
                 let title = '';
                 let alias = path.split('/')[3];
                 let host = req.headers['host'];
+                console.log('header:' + JSON.stringify(req.headers))
                 let referer = req.headers['referer'];
-                let protocol = referer.split('//')[0];
+                let protocol = (referer && referer.split('//')[0]) || 'https:';
                 try {
 
                     let opt = {
