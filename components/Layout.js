@@ -31,10 +31,11 @@ export default function layout(Component, isIndex) {
                         headers: {
                             Accept: 'application/json, text/plain, */*',
                             "Content-Type": "application/json;charset=UTF-8",
-                        }
+                        },
+                        credentials: 'same-origin',
                         // timeout: 1000
                     }
-                    const res = await fetch('/1.0/app/web/details', opt)
+                    const res = await fetch('https://guspc.com/1.0/app/web/details', opt)
                     console.log('try')
                     console.log(`Show data fetched. Count:` + JSON.stringify(res));
                     // if (res.data) {
@@ -58,7 +59,8 @@ export default function layout(Component, isIndex) {
                 headers: {
                     Accept: 'application/json, text/plain, */*',
                     "Content-Type": "application/json;charset=UTF-8",
-                }
+                },
+                credentials: 'same-origin',
                 // timeout: 1000
             }
             const res = await fetch('/1.0/app/web/details', opt)
