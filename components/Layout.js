@@ -21,7 +21,9 @@ export default function layout(Component, isIndex) {
             if (isNews) {
                 let title = '';
                 let alias = path.split('/')[3];
-                let origin = req.origin;
+                let host = req.headers['host'];
+                let referer = req.headers['referer'];
+                let protocol = referer.split('//')[0];
                 try {
 
                     let opt = {
@@ -34,7 +36,7 @@ export default function layout(Component, isIndex) {
                         credentials: 'same-origin',
                         // timeout: 1000
                     }
-                    const res = await fetch(`${origin}/1.0/app/web/details`, opt)
+                    const res = await fetch(`${protocol}//${host}/1.0/app/web/details`, opt)
                     const data = await res.json();
                     if (data) {
                         title = data.details.title;
