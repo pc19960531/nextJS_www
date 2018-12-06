@@ -5,8 +5,11 @@ import Footer from './Footer'
 import userAgent from '../utils/userAgent'
 import zh_cn from '../locales/zh-CN'
 import en_us from '../locales/en-US'
-import post from '../utils/request'
-import axios from 'axios'
+
+
+import fetch from 'isomorphic-unfetch'
+
+
 export default function layout(Component, isIndex) {
     return class extends React.Component {
 
@@ -22,15 +25,15 @@ export default function layout(Component, isIndex) {
                 console.log('id:' + id)
                 console.log('lang:' + language.Lang)
                 try {
-                    const res = await axios(
-                        {
-                            method: "POST",
-                            url: '/1.0/app/web/details',
-                            data: { lang: language.Lang, id },
+                    let opt = {
+                        method: "POST",
+                        // body: { lang: language.Lang, id },
+                        headers: {
                             "Content-Type": "application/json",
-                            // timeout: 1000
                         }
-                    )
+                        // timeout: 1000
+                    }
+                    const res = await fetch('/1.0/app/web/details', opt)
                     if (res.data) {
                         title = res.data.details.title;
                     }

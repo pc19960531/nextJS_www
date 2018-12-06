@@ -20,6 +20,7 @@
     "css-loader": "^1.0.1",
     "express": "^4.16.4",
     "file-loader": "^2.0.0",
+    "isomorphic-unfetch": "^3.0.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "next": "^7.0.2",
