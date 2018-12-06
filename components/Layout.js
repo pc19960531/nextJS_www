@@ -21,13 +21,13 @@ export default function layout(Component, isIndex) {
             if (isNews) {
                 console.log('进来')
                 let title = '';
-                let id = path.split('/')[3];
-                console.log('id:' + id)
+                let alias = path.split('/')[3];
+                console.log('alias:' + alias)
                 console.log('lang:' + language.Lang)
                 try {
                     let opt = {
                         method: "POST",
-                        body: JSON.stringify({ lang: language.Lang, id }),
+                        body: JSON.stringify({ lang: language.Lang, alias }),
                         headers: {
                             Accept: 'application/json, text/plain, */*',
                             "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function layout(Component, isIndex) {
         async componentDidMount() {
             let opt = {
                 method: "POST",
-                body: JSON.stringify({ lang: 'zh-cn', id: '5bd97b86f9463f45327f5345' }),
+                body: JSON.stringify({ lang: 'zh-cn', alias: 'zhu-wang-token-he-yue-jin-ri-geng-xin' }),
                 headers: {
                     Accept: 'application/json, text/plain, */*',
                     "Content-Type": "application/json",
