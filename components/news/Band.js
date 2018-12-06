@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const band = ({ language, id, title }) => (
+const band = ({ language, alias, title }) => (
     <div>
         <div className="band">
             <div className="container">
@@ -26,7 +26,7 @@ const band = ({ language, id, title }) => (
                     </Link>
                 </li>
                 {
-                    id &&
+                    alias &&
                     <li>
                         &nbsp;{title}
                     </li>

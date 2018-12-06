@@ -52,7 +52,7 @@ class VideoComponent extends Component {
                                         {
                                             newsList.map((ele, index) => (
                                                 <Carousel.Item key={index}>
-                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.alias}`}>
                                                         <a target="_blank">
                                                             <div className="news-content row">
                                                                 <div className="news-title col-12 text-left">

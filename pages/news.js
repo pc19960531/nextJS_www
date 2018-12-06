@@ -37,7 +37,7 @@ class News extends React.Component {
                                         (
                                             <div className="new-item">
                                                 <h4>
-                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.alias}`}>
                                                         <a>
                                                             {ele.title}
                                                         </a>
@@ -57,7 +57,7 @@ class News extends React.Component {
                                         <ul className="rec-list">
                                             {
                                                 recommendList.length > 0 && recommendList.map((ele, index) => (
-                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`} key={index}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.alias}`} key={index}>
                                                         <a className="rec-item">
                                                             {ele.title}
                                                         </a>

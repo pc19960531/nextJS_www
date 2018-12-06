@@ -13,8 +13,8 @@ class Newdetail extends Component {
         recommends: ""
     }
     componentWillReceiveProps(nextProps) {
-        if (nextProps.router.query.id !== this.props.router.query.id) {
-            post('/1.0/app/web/details', { lang: this.props.language.Lang, id: nextProps.router.query.id }).then((newsdetails) => {
+        if (nextProps.router.query.alias !== this.props.router.query.alias) {
+            post('/1.0/app/web/details', { lang: this.props.language.Lang, alias: nextProps.router.query.alias }).then((newsdetails) => {
                 this.setState({
                     details: newsdetails.details,
                     recommends: newsdetails.recommends
@@ -26,8 +26,8 @@ class Newdetail extends Component {
         // console.log(JSON.stringify(nextProps));
     }
     componentDidMount() {
-        let id = this.props.router.query.id;
-        post('/1.0/app/web/details', { lang: this.props.language.Lang, id }).then((newsdtails) => {
+        let alias = this.props.router.query.alias;
+        post('/1.0/app/web/details', { lang: this.props.language.Lang, alias }).then((newsdtails) => {
             this.setState({
                 details: newsdtails.details,
                 recommends: newsdtails.recommends
@@ -42,7 +42,7 @@ class Newdetail extends Component {
         return (
             <div className="doc-container">
                 <div className="inside-container">
-                    <Band id={this.props.router.query.id} title={details.title} language={language} />
+                    <Band alias={this.props.router.query.alias} title={details.title} language={language} />
                     <div className="page-body">
                         <div className="container row">
                             <div className="col-lg-9 col-md-9 news-content-container">
@@ -61,7 +61,7 @@ class Newdetail extends Component {
                                         <ul className="rec-list">
                                             {
                                                 recommends && recommends.length > 0 && recommends.map((ele, index) => (
-                                                    <Link href={`/${language.Lang}/newsdetail/${ele.id}`} key={index}>
+                                                    <Link href={`/${language.Lang}/newsdetail/${ele.alias}`} key={index}>
                                                         <a className="rec-item">
                                                             {ele.title}
                                                         </a>

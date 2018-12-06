@@ -9,15 +9,15 @@ app.prepare()
     .then(() => {
         const server = express()
 
-        server.get('/zh-cn/newsdetail/:id', (req, res) => {
+        server.get('/zh-cn/newsdetail/:alias', (req, res) => {
             const actualPage = '/newsdetail'
-            const queryParams = { id: req.params.id }
+            const queryParams = { alias: req.params.alias }
             app.render(req, res, actualPage, queryParams)
         })
 
-        server.get('/en-us/newsdetail/:id', (req, res) => {
+        server.get('/en-us/newsdetail/:alias', (req, res) => {
             const actualPage = '/newsdetail'
-            const queryParams = { id: req.params.id }
+            const queryParams = { alias: req.params.alias }
             app.render(req, res, actualPage, queryParams)
         })
 
