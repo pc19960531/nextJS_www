@@ -39,6 +39,8 @@ export default function layout(Component, isIndex) {
                         credentials: 'same-origin',
                         // timeout: 1000
                     }
+                    //上生产环境前修改此处路径
+                    //const res = await fetch(`https://fibos.io/1.0/app/web/details`, opt)
                     const res = await fetch(`https://guspc.com/1.0/app/web/details`, opt)
                     const data = await res.json();
                     if (data) {

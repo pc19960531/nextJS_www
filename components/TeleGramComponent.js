@@ -178,8 +178,8 @@ class TeleGramComponent extends React.Component {
                     </div >
                     <div className="bottom">
                         <div className="bottom-title">
-                            <Link href="/zh-cn/test">
-                                <a>加入电报群和大神一起聊技术</a>
+                            <Link href="/1.0/web/test">
+                                <a target="_blank">加入电报群和大神一起聊技术</a>
                             </Link>
                         </div>
                         <img src="/imgs/toggle-collapse.png" className="bottom-img" onClick={() => {

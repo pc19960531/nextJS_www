@@ -29,7 +29,7 @@ const Header = ({ isIndex = false, language }) => (
                         <Link href={`https://wallet.fo/${language.Lang}`} >
                             <a className="dropdown-item" target="_blank"> {language.Wallet}</a>
                         </Link>
-                        <Link href={`/${language.Lang}/newsdetail/5b8b51baaba908441dbbfc81`}>
+                        <Link href={`/${language.Lang}/${language.Lang === 'zh-cn' ? 'newsdetail/fo-qian-bao-dui-huan-jiao-cheng' : 'foexchange'}`}>
                             <a className="dropdown-item" target="_blank"> {language.FO_Exchange}</a>
                         </Link>
                     </NavDropdown>
@@ -43,7 +43,6 @@ const Header = ({ isIndex = false, language }) => (
                             <a className="nav-link" target="_blank">{language.FAQ}</a>
                         </Link>
                     }
-
                     <NavDropdown title={<img src={language.Lang === "zh-cn" ? zh : en} />} id="collasible-nav-dropdown">
                         <NavDropdown.Item href="/zh-cn/index">
                             <img src={zh} />

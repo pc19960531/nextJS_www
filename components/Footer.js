@@ -45,7 +45,7 @@ export default ({ language }) => (
                                     </h5>
                                     <ul>
                                         <li>
-                                            <Link href={`/${language.Lang}/newsdetail/5b8b51baaba908441dbbfc81`}>
+                                            <Link href={`/${language.Lang}/${language.Lang === 'zh-cn' ? 'newsdetail/fo-qian-bao-dui-huan-jiao-cheng' : 'foexchange'}`}>
                                                 <a target="_blank">
                                                     {language.FO_Exchange}
                                                 </a>

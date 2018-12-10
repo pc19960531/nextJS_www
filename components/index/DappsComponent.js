@@ -3,11 +3,12 @@ import { Carousel } from 'react-bootstrap'
 
 class DappsComponent extends Component {
     state = {
-        index: 0
+        index: 0,
+        direction: null
     }
     render() {
         const language = this.props.language;
-        let index = this.state.index;
+        const { direction, index } = this.state;
         return (
             <div className="index-banner">
                 <a name="dapps" style={{ height: 0 }}></a>
@@ -20,6 +21,7 @@ class DappsComponent extends Component {
                             indicators={false}
                             controls={false}
                             activeIndex={index}
+                            direction={direction}
                         >
                             <Carousel.Item className="bannercontent">
                                 <div className="row">
@@ -250,18 +252,22 @@ class DappsComponent extends Component {
                             onClick={() => {
                                 this.setState(
                                     {
-                                        index: index === 0 ? 1 : 0
+                                        index: index === 0 ? 1 : 0,
+                                        direction: "prev"
                                     }
                                 )
                             }}
                         >
                             <img src="../imgs/arrow-partner.png" />
                         </a>
+
+
                         <a className="dapp-control right"
                             onClick={() => {
                                 this.setState(
                                     {
-                                        index: index === 0 ? 1 : 0
+                                        index: index === 0 ? 1 : 0,
+                                        direction: "next"
                                     }
                                 )
                             }}

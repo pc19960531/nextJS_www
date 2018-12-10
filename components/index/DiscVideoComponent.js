@@ -40,8 +40,8 @@ export default class extends Component {
                                 style={{ width: "100%" }}
                                 height='100%'
                             >
-                                <source src="http://pj929u0ir.bkt.clouddn.com/zh_cn.mp4" type="video/mp4" />
-                                {/* <source src={`/video/blockchain_${language.Lang === 'zh-cn' ? 'cn' : 'us'}.mp4`} type="video/mp4" /> */}
+                                {/* <source src="http://pj929u0ir.bkt.clouddn.com/zh_cn.mp4" type="video/mp4" /> */}
+                                <source src={`/video/blockchain_${language.Lang === 'zh-cn' ? 'cn' : 'us'}.mp4`} type="video/mp4" />
                             </video>
                         </div>
                     </Modal>)

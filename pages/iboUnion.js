@@ -69,6 +69,19 @@ class IBOUnion extends Component {
             <option value={item[0]} name={item[1]}>{item[1]}</option>
         ))
         choosePro.unshift(<option disabled style={{ display: 'none' }} selected="selected" name="省">省</option>)
+        let chooseProShow = (<select
+            onChange={(e) => {
+                this.setState({
+                    province: e.target.value,
+                    province_name: e.target[e.target.selectedIndex].text,
+                    city: "",
+                    area: "",
+                })
+            }}>
+            {
+                choosePro
+            }
+        </select>)
         if (province) {
             for (let i in data.provinces[province].citys) {
                 chooseCitys.push([i, data.provinces[province].citys[i].name])
@@ -76,9 +89,24 @@ class IBOUnion extends Component {
             chooseCitys = chooseCitys.map((item) => (
                 <option value={item[0]} name={item[1]}>{item[1]}</option>
             ))
-            chooseCitys.unshift(<option disabled style={{ display: 'none' }} selected="selected" name="市">市</option>)
+            console.error(chooseCitys.unshift(<option disabled style={{ display: 'none' }} selected="selected" name="市">市</option>))
         }
-
+        let chooseCitysShow = (
+            <select
+                key={province}
+                onChange={(e) => {
+                    this.setState({
+                        city: e.target.value,
+                        city_name: e.target[e.target.selectedIndex].text,
+                        area: "",
+                    })
+                }}
+            >
+                {
+                    chooseCitys
+                }
+            </select>
+        )
         if (province && city) {
             for (let i in data.provinces[province].citys[city].countys) {
                 chooseAreas.push([i, data.provinces[province].citys[city].countys[i].name])
@@ -88,6 +116,21 @@ class IBOUnion extends Component {
             ))
             chooseAreas.unshift(<option selected="selected" disabled style={{ display: 'none' }} name="区">区</option>)
         }
+        let chooseAreasShow = (
+            <select
+                key={city}
+                onChange={(e) => {
+                    this.setState({
+                        area: e.target.value,
+                        area_name: e.target[e.target.selectedIndex].text,
+                    })
+                }}
+            >
+                {
+                    chooseAreas
+                }
+            </select>
+        )
         return (
             <div className="ibo-union">
                 <div className="band">
@@ -575,48 +618,19 @@ class IBOUnion extends Component {
                                             <div data-toggle="distpicker" className="col-9 cityselect" id="distpicker">
                                                 <div className="row">
                                                     <div className="col-4">
-                                                        <select
-                                                            onChange={(e) => {
-                                                                this.setState({
-                                                                    province: e.target.value,
-                                                                    province_name: e.target[e.target.selectedIndex].text,
-                                                                    city: "",
-                                                                    area: "",
-                                                                })
-                                                            }}>
-                                                            {
-                                                                choosePro
-                                                            }
-                                                        </select>
+                                                        {
+                                                            chooseProShow
+                                                        }
                                                     </div>
                                                     <div className="col-4">
-                                                        <select
-                                                            onChange={(e) => {
-                                                                this.setState({
-                                                                    city: e.target.value,
-                                                                    city_name: e.target[e.target.selectedIndex].text,
-                                                                    area: "",
-                                                                })
-                                                            }}
-                                                        >
-                                                            {
-                                                                chooseCitys
-                                                            }
-                                                        </select>
+                                                        {
+                                                            chooseCitysShow
+                                                        }
                                                     </div>
                                                     <div className="col-4">
-                                                        <select
-                                                            onChange={(e) => {
-                                                                this.setState({
-                                                                    area: e.target.value,
-                                                                    area_name: e.target[e.target.selectedIndex].text,
-                                                                })
-                                                            }}
-                                                        >
-                                                            {
-                                                                chooseAreas
-                                                            }
-                                                        </select>
+                                                        {
+                                                            chooseAreasShow
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
